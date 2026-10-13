@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Krea University Economics Club</title>
+<script src="./assets/vendor/react.js"></script>
+<script src="./assets/vendor/react-dom.js"></script>
+<script src="./assets/js/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'DM Sans',system-ui,sans-serif;color:#334155;background:#ffffff;cursor:default}
+a{color:#2563EB}a:hover{color:#102A43}
+.nav a{color:#102A43;text-decoration:none;font-weight:500;font-size:15px;padding:10px 12px;border-radius:8px;display:inline-block;transition:background .2s ease, transform .2s ease}
+.nav a:hover{background:#DBEAFE;transform:translateY(-1px)}
+.ph{background:#F0F7FF;border:1px dashed #2563EB;border-radius:6px;padding:1px 8px;color:#1e40af;font-size:.92em}
+.btn{display:inline-block;text-decoration:none;font-weight:600;padding:14px 24px;border-radius:10px;transition:transform .2s ease, box-shadow .2s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(16,42,67,.18)}
+.chip{transition:transform .2s ease, background .2s ease, color .2s ease}
+.chip:hover{transform:translateY(-3px) rotate(-1.5deg);background:#2563EB !important;color:#ffffff !important}
+.tabbtn{font:inherit;cursor:pointer;transition:background .2s ease, color .2s ease, transform .2s ease}
+.tabbtn:hover{transform:translateX(4px)}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+.rise{animation:rise .7s ease both}
+.d2{animation-delay:.12s}.d3{animation-delay:.24s}
+@media (prefers-reduced-motion: reduce){.rise{animation:none}}
+</style>
+</helmet>
+<div onMouseMove="{{ rootMove }}" onMouseLeave="{{ rootLeave }}" style="position:relative;overflow:hidden;width:100%;box-sizing:border-box;background:#ffffff">
+
+<div aria-hidden="true" style="{{ ringStyle }}"></div>
+<div aria-hidden="true" style="{{ dotStyle }}"></div>
+
+<!-- Header -->
+<header style="background:#ffffff;border-bottom:1px solid #DBEAFE;position:relative;z-index:2">
+<div style="max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px">
+<a href="#top" style="display:flex;align-items:center;gap:12px;text-decoration:none">
+<img src="./assets/images/club-logo.jpg" alt="Krea University Economics Club logo" style="width:44px;height:44px;border-radius:10px;object-fit:cover;border:1px solid #DBEAFE;box-shadow:0 10px 22px rgba(16,42,67,.12)">
+<div style="display:flex;flex-direction:column;line-height:1.2"><span style="font-family:'Source Serif 4',serif;font-weight:700;color:#102A43;font-size:17px">Krea University</span><span style="color:#334155;font-size:13px">Economics Club</span></div>
+</a>
+<nav class="nav" aria-label="Main" style="display:flex;flex-wrap:wrap;gap:2px;align-items:center">
+<a href="#about">About Us</a>
+<a href="#initiatives">Initiatives</a>
+<a href="#team">Our Team</a>
+<a href="#insights">Insights</a>
+<a href="#contact">Contact Us</a>
+<a href="Delta.dc.html" style="background:#102A43;color:#ffffff;margin-left:6px;display:inline-flex;align-items:center;gap:8px">Delta <span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#FACC15"></span></a>
+</nav>
+</div>
+</header>
+
+<!-- Hero -->
+<section id="top" style="{{ heroStyle }}">
+<div style="max-width:1200px;margin:0 auto;padding:64px 24px 80px;display:flex;flex-wrap:wrap;align-items:center;gap:48px;position:relative">
+<div class="rise" style="flex:1 1 460px;min-width:0;display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;align-items:center;gap:14px">
+<img src="./assets/images/club-logo.jpg" alt="Krea University Economics Club logo" style="width:72px;height:72px;border-radius:16px;object-fit:cover;border:1px solid #DBEAFE;box-shadow:0 10px 22px rgba(16,42,67,.12);background:#ffffff">
+<span style="font-size:14px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#2563EB">Krea University Economics Club</span>
+</div>
+<h1 style="margin:0;font-family:'Source Serif 4',serif;font-weight:700;font-size:56px;line-height:1.08;color:#102A43">Economics, questioned and not only studied.</h1>
+<p style="margin:0;font-size:19px;line-height:1.6;max-width:560px">A student-led initiative promoting critical engagement with economics through discussion, collaboration and diverse schools of thought.</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px">
+<a class="btn" href="#about" style="background:#2563EB;color:#ffffff">Explore Our Club</a>
+<a class="btn" href="Delta.dc.html" style="background:#ffffff;color:#102A43;border:2px solid #102A43">Discover Delta</a>
+</div>
+<span style="font-size:13px;color:#475569">Tagline: <span class="ph">[Add Society Tagline]</span></span>
+</div>
+
+<div class="rise d2" style="flex:1 1 400px;min-width:0;display:flex;flex-direction:column;gap:14px;align-items:center">
+<svg viewBox="0 0 440 360" role="img" aria-label="Interactive supply and demand graph. Move the cursor up and down to change the price." onMouseMove="{{ graphMove }}" onMouseLeave="{{ graphLeave }}" style="width:100%;max-width:500px;height:auto;border-radius:24px;box-shadow:0 24px 50px rgba(16,42,67,.22);cursor:crosshair;touch-action:none">
+<defs><clipPath id="plot"><rect x="60" y="40" width="340" height="260"></rect></clipPath></defs>
+<rect x="0" y="0" width="440" height="360" rx="24" fill="#102A43"></rect>
+<g stroke="#2a4a68" stroke-width="1">
+<line x1="60" y1="92" x2="400" y2="92"></line><line x1="60" y1="144" x2="400" y2="144"></line><line x1="60" y1="196" x2="400" y2="196"></line><line x1="60" y1="248" x2="400" y2="248"></line>
+</g>
+<line x1="60" y1="300" x2="400" y2="300" stroke="#DBEAFE" stroke-width="2"></line>
+<line x1="60" y1="40" x2="60" y2="300" stroke="#DBEAFE" stroke-width="2"></line>
+<g clip-path="url(#plot)">
+<rect x="{{ g.gapX }}" y="{{ g.cy }}" width="{{ g.gapW }}" height="10" rx="3" fill="{{ g.gapColor }}" opacity="0.9" style="transition:all .08s linear"></rect>
+<line x1="60" y1="{{ g.cy }}" x2="400" y2="{{ g.cy }}" stroke="#93C5FD" stroke-width="1.5" stroke-dasharray="5 5"></line>
+<line x1="{{ g.d0x }}" y1="300" x2="{{ g.d1x }}" y2="40" stroke="#ffffff" stroke-width="5" stroke-linecap="round" style="transition:all .35s ease"></line>
+<line x1="{{ g.s0x }}" y1="300" x2="{{ g.s1x }}" y2="40" stroke="#60A5FA" stroke-width="5" stroke-linecap="round" style="transition:all .35s ease"></line>
+<line x1="{{ g.eqX }}" y1="{{ g.eqY }}" x2="{{ g.eqX }}" y2="300" stroke="#60A5FA" stroke-dasharray="4 5" style="transition:all .35s ease"></line>
+<line x1="60" y1="{{ g.eqY }}" x2="{{ g.eqX }}" y2="{{ g.eqY }}" stroke="#60A5FA" stroke-dasharray="4 5" style="transition:all .35s ease"></line>
+</g>
+<circle cx="{{ g.eqX }}" cy="{{ g.eqY }}" r="9" fill="#2563EB" stroke="#ffffff" stroke-width="3" style="transition:all .35s ease"></circle>
+<text x="404" y="64" fill="#ffffff" font-family="DM Sans" font-size="12" text-anchor="end">Demand</text>
+<text x="404" y="282" fill="#93C5FD" font-family="DM Sans" font-size="12" text-anchor="end">Supply</text>
+<text x="14" y="30" fill="#DBEAFE" font-family="DM Sans" font-size="12">Price</text>
+<text x="400" y="322" fill="#DBEAFE" font-family="DM Sans" font-size="12" text-anchor="end">Quantity</text>
+<text x="60" y="340" fill="#ffffff" font-family="DM Sans" font-size="13" font-weight="700">{{ g.readout }}</text>
+</svg>
+<div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center">
+<button type="button" class="tabbtn" onClick="{{ demandUp }}" style="min-height:44px;padding:0 16px;border-radius:999px;border:1px solid #2563EB;background:#ffffff;color:#102A43;font-weight:600">Demand up</button>
+<button type="button" class="tabbtn" onClick="{{ supplyUp }}" style="min-height:44px;padding:0 16px;border-radius:999px;border:1px solid #2563EB;background:#ffffff;color:#102A43;font-weight:600">Supply up</button>
+<button type="button" class="tabbtn" onClick="{{ shiftReset }}" style="min-height:44px;padding:0 16px;border-radius:999px;border:1px solid #102A43;background:#102A43;color:#ffffff;font-weight:600">Reset</button>
+</div>
+<span style="font-size:13px;color:#475569;text-align:center;max-width:420px">Move your cursor up and down the graph to set a price. Gaps show shortage or surplus. Index units, for illustration only.</span>
+</div>
+</div>
+</section>
+
+<!-- About -->
+<section id="about" style="background:#ffffff">
+<div style="max-width:1200px;margin:0 auto;padding:80px 24px;display:flex;flex-wrap:wrap;gap:48px">
+<div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:16px">
+<span style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#2563EB">About the Club</span>
+<h2 style="margin:0;font-family:'Source Serif 4',serif;font-size:40px;line-height:1.15;color:#102A43">A holistic space for economics at Krea.</h2>
+<p style="margin:0;line-height:1.65">Through discussion, collaboration and exploration of diverse schools of thought, the Club encourages a holistic understanding of economic issues, connecting ideas across disciplines. It is also a platform for networking and mentorship across cohorts, with scholars and with industry professionals.</p>
+<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:6px">
+<span class="ph">Vision: [Add Society Vision]</span>
+</div>
+</div>
+<div style="flex:1 1 480px;min-width:0;display:flex;flex-wrap:wrap;gap:16px">
+<div role="tablist" aria-label="Club purpose" style="flex:0 1 200px;display:flex;flex-direction:column;gap:8px">
+<sc-for list="{{ pillars }}" as="p" hint-placeholder-count="3">
+<button type="button" role="tab" class="tabbtn" onClick="{{ p.pick }}" style="{{ p.style }}">{{ p.label }}</button>
+</sc-for>
+</div>
+<div style="flex:1 1 260px;min-width:0;background:#F0F7FF;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:14px">
+<h3 style="margin:0;font-family:'Source Serif 4',serif;font-size:22px;color:#102A43">{{ pillarTitle }}</h3>
+<ul style="margin:0;padding-left:20px;display:flex;flex-direction:column;gap:10px;line-height:1.55">
+<sc-for list="{{ pillarPoints }}" as="pt" hint-placeholder-count="4"><li>{{ pt }}</li></sc-for>
+</ul>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Initiatives -->
+<section id="initiatives" style="background:#102A43;color:#DBEAFE">
+<div style="max-width:1200px;margin:0 auto;padding:80px 24px;display:flex;flex-direction:column;gap:36px">
+<div style="display:flex;flex-direction:column;gap:12px;max-width:680px">
+<span style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#93C5FD">What We Do</span>
+<h2 style="margin:0;font-family:'Source Serif 4',serif;font-size:40px;line-height:1.15;color:#ffffff">Initiatives and activities</h2>
+<p style="margin:0;line-height:1.6">Drawn from the Club charter. Hover or tap a card to open it.</p>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:20px">
+<sc-for list="{{ activities }}" as="x" hint-placeholder-count="6">
+<button type="button" onMouseEnter="{{ x.onEnter }}" onMouseMove="{{ x.onMove }}" onMouseLeave="{{ x.onLeave }}" onClick="{{ x.onClick }}" style="{{ x.style }}">
+<span style="display:block;font-family:'Source Serif 4',serif;font-size:36px;font-weight:700;color:#60A5FA;line-height:1">{{ x.num }}</span>
+<span style="display:block;font-family:'Source Serif 4',serif;font-size:22px;font-weight:600;color:#ffffff;margin-top:10px">{{ x.title }}</span>
+<span style="display:block;line-height:1.55;color:#DBEAFE;margin-top:8px">{{ x.body }}</span>
+<span style="{{ x.detailStyle }}">{{ x.detail }}</span>
+</button>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- Team -->
+<section id="team" style="background:#ffffff">
+<div style="max-width:1200px;margin:0 auto;padding:80px 24px;display:flex;flex-direction:column;gap:36px">
+<div style="display:flex;flex-direction:column;gap:12px;max-width:700px">
+<span style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#2563EB">Our Team</span>
+<h2 style="margin:0;font-family:'Source Serif 4',serif;font-size:40px;line-height:1.15;color:#102A43">The Executive Council</h2>
+<p style="margin:0;line-height:1.6">Eight roles from the charter. Names, photos and bios are not in the documents yet, so each card is a placeholder. Hover a card to see what the role does.</p>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:20px;perspective:1200px">
+<sc-for list="{{ team }}" as="m" hint-placeholder-count="8">
+<div onMouseEnter="{{ m.onEnter }}" onMouseMove="{{ m.onMove }}" onMouseLeave="{{ m.onLeave }}" style="{{ m.cardStyle }}">
+<div style="{{ m.photoStyle }}">
+<img src="{{ m.photoSrc }}" alt="{{ m.role }}" style="width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(100%) contrast(1.05) brightness(1.02);">
+<div style="{{ m.overlayStyle }}"><span style="font-weight:700;margin-bottom:6px;display:block;color:#FACC15;font-size:12px;letter-spacing:.08em;text-transform:uppercase">What this role does</span>{{ m.duty }}</div>
+</div>
+<div style="padding:18px 20px 22px;display:flex;flex-direction:column;gap:6px">
+<span style="font-weight:600;color:#2563EB;font-size:14px">{{ m.role }}</span>
+<span style="font-family:'Source Serif 4',serif;font-weight:700;font-size:19px;color:#102A43">{{ m.name }}</span>
+<span style="font-size:13px;color:#475569">{{ m.bio }} · {{ m.linkedin }}</span>
+</div>
+</div>
+</sc-for>
+</div>
+<div style="background:#F0F7FF;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:12px">
+<span style="font-weight:700;color:#102A43">Founding members who drafted the charter</span>
+<div style="display:flex;flex-wrap:wrap;gap:8px">
+<sc-for list="{{ founders }}" as="f" hint-placeholder-count="7"><span class="chip" style="background:#DBEAFE;color:#102A43;padding:8px 16px;border-radius:999px;font-weight:600;font-size:14px;display:inline-block">{{ f }}</span></sc-for>
+</div>
+</div>
+</div>
+</section>
+
+<!-- How the club works -->
+<section style="background:#F0F7FF">
+<div style="max-width:1200px;margin:0 auto;padding:72px 24px;display:flex;flex-wrap:wrap;gap:20px">
+<sc-for list="{{ facts }}" as="f" hint-placeholder-count="3">
+<div style="flex:1 1 300px;min-width:0;box-sizing:border-box;background:#ffffff;border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:10px;border-top:4px solid #2563EB">
+<h3 style="margin:0;font-family:'Source Serif 4',serif;font-size:22px;color:#102A43">{{ f.title }}</h3>
+<p style="margin:0;line-height:1.6">{{ f.body }}</p>
+</div>
+</sc-for>
+</div>
+</section>
+
+<!-- Insights -->
+<section id="insights" style="background:#ffffff">
+<div style="max-width:1200px;margin:0 auto;padding:80px 24px;display:flex;flex-direction:column;gap:36px">
+<div style="display:flex;flex-direction:column;gap:12px;max-width:680px">
+<span style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#2563EB">Publications and Insights</span>
+<h2 style="margin:0;font-family:'Source Serif 4',serif;font-size:40px;line-height:1.15;color:#102A43">Articles, explainers and research</h2>
+<p style="margin:0;line-height:1.6">No publications have been supplied yet. These slots are ready for them.</p>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:20px">
+<sc-for list="{{ pubs }}" as="p" hint-placeholder-count="3">
+<article onMouseEnter="{{ p.onEnter }}" onMouseLeave="{{ p.onLeave }}" style="{{ p.style }}">
+<div style="height:140px;background:#DBEAFE;display:flex;align-items:center;justify-content:center;font-size:13px;color:#1e40af">[Add Cover Image]</div>
+<div style="padding:24px;display:flex;flex-direction:column;gap:10px">
+<h3 style="margin:0;font-family:'Source Serif 4',serif;font-size:21px;color:#102A43"><span class="ph">[Add Article Title]</span></h3>
+<span style="font-size:13px;color:#475569"><span class="ph">[Add Author]</span> · <span class="ph">[Add Publication Date]</span></span>
+<p style="margin:0;font-size:14px;line-height:1.55"><span class="ph">[Add Short Summary]</span></p>
+<span style="font-size:13px;color:#475569">Link: <span class="ph">[Add Article Link]</span></span>
+</div>
+</article>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- Delta spotlight -->
+<section style="background:#F0F7FF">
+<div style="max-width:1200px;margin:0 auto;padding:80px 24px">
+<div style="background:#102A43;border-radius:24px;padding:48px;display:flex;flex-wrap:wrap;align-items:center;gap:36px">
+<div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:16px">
+<span style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#93C5FD">Our flagship fest</span>
+<h2 style="margin:0;font-family:'Source Serif 4',serif;font-size:44px;line-height:1.1;color:#ffffff">Delta 26–27: Ex Machina, the power behind the system.</h2>
+<p style="margin:0;line-height:1.6;color:#DBEAFE">The second edition of Krea's flagship economics fest asks one question: when an economic system changes, who or what is actually shaping that change? The first edition ran on 21 and 22 March 2026 under the theme "A World in Crisis".</p>
+<div><a class="btn" href="Delta.dc.html" style="background:#FACC15;color:#1F2937">Enter the Delta site</a></div>
+</div>
+<div style="flex:0 1 240px;display:flex;justify-content:center">
+<a href="Delta.dc.html" aria-label="Go to Delta" style="text-decoration:none;display:block;width:200px;height:200px;border-radius:24px;background:#B91C1C;transform:rotate(-4deg);box-shadow:10px 10px 0 #FACC15;transition:transform .25s ease, box-shadow .25s ease;{{ deltaTile }}">
+<span style="display:flex;width:100%;height:100%;align-items:center;justify-content:center;font-family:'Source Serif 4',serif;font-size:120px;font-weight:700;color:#FACC15;line-height:1">Δ</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Contact -->
+<section id="contact" style="background:#ffffff">
+<div style="max-width:1200px;margin:0 auto;padding:80px 24px;display:flex;flex-wrap:wrap;gap:48px">
+<div style="flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:14px">
+<span style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#2563EB">Contact Us</span>
+<h2 style="margin:0;font-family:'Source Serif 4',serif;font-size:40px;line-height:1.15;color:#102A43">Get in touch</h2>
+<p style="margin:0;line-height:1.6">The email and Instagram handle come from the Delta brochure. Please confirm they are also the Club's main channels.</p>
+</div>
+<div style="flex:1 1 400px;min-width:0;display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;background:#F0F7FF;border-radius:12px;padding:16px 20px"><span style="font-weight:600;color:#102A43">Email</span><a href="mailto:sias.esok@krea.ac.in">sias.esok@krea.ac.in</a></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;background:#F0F7FF;border-radius:12px;padding:16px 20px"><span style="font-weight:600;color:#102A43">Instagram</span><a href="https://www.instagram.com/economicsclub_krea" target="_blank" rel="noopener">@economicsclub_krea</a></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;background:#F0F7FF;border-radius:12px;padding:16px 20px"><span style="font-weight:600;color:#102A43">LinkedIn</span><span class="ph">[Add LinkedIn URL]</span></div>
+<div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;background:#F0F7FF;border-radius:12px;padding:16px 20px"><span style="font-weight:600;color:#102A43">Other social media</span><span class="ph">[Add Other Social Links]</span></div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer style="background:#102A43;color:#DBEAFE">
+<div style="max-width:1200px;margin:0 auto;padding:36px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center">
+<span style="font-family:'Source Serif 4',serif;font-weight:600;color:#ffffff">Krea University Economics Club</span>
+<div style="display:flex;flex-wrap:wrap;gap:20px;font-size:14px">
+<a href="#about" style="color:#DBEAFE">About</a>
+<a href="#initiatives" style="color:#DBEAFE">Initiatives</a>
+<a href="#team" style="color:#DBEAFE">Team</a>
+<a href="#insights" style="color:#DBEAFE">Insights</a>
+<a href="Delta.dc.html" style="color:#FACC15">Delta</a>
+<a href="#contact" style="color:#DBEAFE">Contact</a>
+</div>
+<span style="font-size:13px;color:#93C5FD">Student-led. Not an official university publication unless stated.</span>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":4300}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.state || {};
+    const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+    const set = (o) => this.setState(o);
+
+    /* ---- cursor ring + hero spotlight ---- */
+    const cx = s.cx, cy = s.cy;
+    const has = typeof cx === 'number';
+    const ringStyle = 'position:absolute;left:0;top:0;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;border:2px solid rgba(37,99,235,.55);pointer-events:none;z-index:50;transition:transform .18s ease-out, opacity .2s ease;opacity:' + (has ? 1 : 0) + ';transform:translate(' + (has ? cx : 0) + 'px,' + (has ? cy : 0) + 'px) scale(' + (s.hk ? 1.7 : 1) + ')';
+    const dotStyle = 'position:absolute;left:0;top:0;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:#2563EB;pointer-events:none;z-index:50;opacity:' + (has ? 1 : 0) + ';transform:translate(' + (has ? cx : 0) + 'px,' + (has ? cy : 0) + 'px)';
+    const hx = has ? cx : 600, hy = has ? cy - 80 : 200;
+    const heroStyle = 'position:relative;overflow:hidden;background:radial-gradient(520px circle at ' + hx + 'px ' + hy + 'px, rgba(37,99,235,.20), rgba(37,99,235,0) 62%), linear-gradient(180deg,#F0F7FF 0%,#ffffff 100%)';
+
+    /* ---- supply and demand graph ---- */
+    const sd = s.sd || 0, ss = s.ss || 0;
+    const p = typeof s.p === 'number' ? s.p : 0.5;
+    const X = (q) => 60 + q * 340;
+    const Y = (pp) => 300 - pp * 260;
+    const dq = (pp) => 0.8 - 0.7 * pp + sd;
+    const sq = (pp) => 0.2 + 0.7 * pp + ss;
+    const peq = (0.6 + sd - ss) / 1.4;
+    const qeq = sq(peq);
+    const gap = dq(p) - sq(p);
+    const state = gap > 0.03 ? 'Shortage' : (gap < -0.03 ? 'Surplus' : 'Near equilibrium');
+    const g = {
+      d0x: X(dq(0)), d1x: X(dq(1)), s0x: X(sq(0)), s1x: X(sq(1)),
+      eqX: X(qeq), eqY: Y(peq), cy: Y(p) - 5,
+      gapX: X(Math.min(dq(p), sq(p))), gapW: Math.abs(X(dq(p)) - X(sq(p))),
+      gapColor: gap > 0.03 ? '#FACC15' : (gap < -0.03 ? '#ffffff' : '#60A5FA'),
+      readout: 'Price ' + Math.round(p * 100) + ' · ' + state + ' · Equilibrium ' + Math.round(peq * 100) + ', ' + Math.round(qeq * 100)
+    };
+    const graphMove = (e) => {
+      const r = e.currentTarget.getBoundingClientRect();
+      const vy = ((e.clientY - r.top) / r.height) * 360;
+      set({ p: clamp((300 - vy) / 260, 0.05, 0.95) });
+    };
+    const graphLeave = () => set({ p: 0.5 });
+    const demandUp = () => set({ sd: clamp(sd + 0.08, -0.16, 0.16) });
+    const supplyUp = () => set({ ss: clamp(ss + 0.08, -0.16, 0.16) });
+    const shiftReset = () => set({ sd: 0, ss: 0 });
+
+    /* ---- root cursor tracking (throttled) ---- */
+    const rootMove = (e) => {
+      const now = Date.now();
+      if (this._t && now - this._t < 28) return;
+      this._t = now;
+      const r = e.currentTarget.getBoundingClientRect();
+      set({ cx: e.clientX - r.left, cy: e.clientY - r.top });
+    };
+    const rootLeave = () => set({ cx: null, cy: null });
+
+    /* ---- about tabs ---- */
+    const pillarsData = {
+      understand: { label: 'Understanding', title: 'Promote a better understanding of economics', points: [
+        'Prioritise education and co-creation of knowledge through a forum for critical engagement and free exchange of ideas.',
+        'Expose members to schools of thought that go beyond mainstream approaches.',
+        'Evolve economics at Krea through "Holistic Economics", with dialogue across the discipline’s fields.',
+        'Recognise the discipline’s epistemic limits and take cues from other disciplines on local and global issues.'] },
+      network: { label: 'Networking', title: 'Provide a platform that enables networking', points: [
+        'Connect students interested in economics across all cohorts.',
+        'Facilitate interaction between students, scholars and industry experts.',
+        'Build a mentorship programme for incoming batches.',
+        'Put in place a system for student opportunities such as Teaching and Research Assistantships.'] },
+      suggest: { label: 'Suggestive body', title: 'Act as a suggestive body', points: [
+        'Identify and engage with issues on or off campus through an intradisciplinary and interdisciplinary lens.',
+        'Develop guidelines and help shape plans and policies directed at those issues.'] }
+    };
+    const pk = s.pillar || 'understand';
+    const pillars = Object.keys(pillarsData).map((k) => ({
+      label: pillarsData[k].label,
+      pick: () => set({ pillar: k }),
+      style: 'text-align:left;min-height:48px;padding:0 16px;border-radius:12px;font-weight:600;border:1px solid ' + (k === pk ? '#102A43' : '#DBEAFE') + ';background:' + (k === pk ? '#102A43' : '#ffffff') + ';color:' + (k === pk ? '#ffffff' : '#102A43')
+    }));
+
+    /* ---- shared hover helper ---- */
+    const hov = (id) => ({
+      onEnter: () => set({ hk: id }),
+      onLeave: () => set({ hk: null }),
+      onMove: (e) => {
+        const r = e.currentTarget.getBoundingClientRect();
+        set({ hk: id, hxp: (e.clientX - r.left) / r.width, hyp: (e.clientY - r.top) / r.height });
+      }
+    });
+    const hk = s.hk, hxp = typeof s.hxp === 'number' ? s.hxp : 0.5, hyp = typeof s.hyp === 'number' ? s.hyp : 0.5;
+
+    /* ---- initiatives ---- */
+    const acts = [
+      { title: 'A forum for ideas', body: 'Co-creating knowledge through critical engagement and a free exchange of thoughts among members.', detail: 'Members are exposed to schools of thought that go beyond mainstream approaches.' },
+      { title: 'Holistic Economics', body: 'Dialogue and discourse across the discipline’s various fields.', detail: 'Recognising the limits of economics and taking cues from other disciplines on local and global issues.' },
+      { title: 'Networking', body: 'Connecting students across cohorts, and with scholars and industry experts.', detail: 'A platform that brings students, scholars and industry professionals into the same room.' },
+      { title: 'Mentorship', body: 'Help and guidance for economists in incoming batches coping with the rigour of economics at Krea.', detail: 'Built as a programme, so each new batch has someone who has been through it.' },
+      { title: 'Student opportunities', body: 'A system for student employment opportunities such as Teaching and Research Assistantships.', detail: 'Details of how the system will run are not in the charter yet.' },
+      { title: 'A suggestive body', body: 'Engaging with campus and outside issues through an intradisciplinary and interdisciplinary lens.', detail: 'Develops guidelines and helps in formulating plans and policies directed at those issues.' }
+    ];
+    const activities = acts.map((a, i) => {
+      const id = 'a' + i, h = hov(id), open = hk === id || s.open === id;
+      return Object.assign({}, a, h, {
+        num: '0' + (i + 1),
+        onClick: () => set({ open: s.open === id ? null : id }),
+        style: 'flex:1 1 320px;min-width:0;box-sizing:border-box;text-align:left;font:inherit;cursor:pointer;border-radius:16px;padding:28px;border:1px solid ' + (open ? '#60A5FA' : '#2a4a68') + ';background:' + (hk === id ? 'radial-gradient(280px circle at ' + Math.round(hxp * 100) + '% ' + Math.round(hyp * 100) + '%, rgba(96,165,250,.38), rgba(24,59,92,1) 70%)' : '#183b5c') + ';transform:' + (hk === id ? 'translateY(-4px)' : 'none') + ';transition:transform .2s ease, border-color .2s ease',
+        detailStyle: 'display:block;overflow:hidden;color:#FACC15;line-height:1.5;transition:max-height .3s ease, opacity .3s ease, margin .3s ease;max-height:' + (open ? '120px' : '0') + ';opacity:' + (open ? 1 : 0) + ';margin-top:' + (open ? '14px' : '0')
+      });
+    });
+
+    /* ---- team ---- */
+    const teamMembers = [
+      {
+        role: 'President',
+        name: '[Add Member Name]',
+        bio: '[Add Short Bio]',
+        linkedin: '[Add LinkedIn]',
+        photo: './assets/images/team-1.jpg',
+        duty: 'Oversees and coordinates all Club operations, chairs council meetings and reports to members every three months.'
+      },
+      {
+        role: 'Co-President',
+        name: '[Add Member Name]',
+        bio: '[Add Short Bio]',
+        linkedin: '[Add LinkedIn]',
+        photo: './assets/images/team-2.jpg',
+        duty: 'Shares the President’s duties, including handling member grievances and managing collaborations with other clubs.'
+      },
+      {
+        role: 'Director of Communications',
+        name: '[Add Member Name]',
+        bio: '[Add Short Bio]',
+        linkedin: '[Add LinkedIn]',
+        photo: './assets/images/team-3.jpg',
+        duty: 'Shares Club activity with the university, builds stakeholder networks and manages the Club’s media handles.'
+      },
+      {
+        role: 'Director of Events',
+        name: '[Add Member Name]',
+        bio: '[Add Short Bio]',
+        linkedin: '[Add LinkedIn]',
+        photo: './assets/images/team-4.jpg',
+        duty: 'Ideates, plans and runs all Club events, and keeps the event calendar and post-event reports.'
+      },
+      {
+        role: 'Treasurer',
+        name: '[Add Member Name]',
+        bio: '[Add Short Bio]',
+        linkedin: '[Add LinkedIn]',
+        photo: './assets/images/team-5.jpg',
+        duty: 'Oversees Club finances, quarterly statements and the budget proposal, and procures sponsorships.'
+      },
+      {
+        role: 'Events Coordinator',
+        name: '[Add Member Name]',
+        bio: '[Add Short Bio]',
+        linkedin: '[Add LinkedIn]',
+        photo: './assets/images/team-6.jpg',
+        duty: 'Works under the Director of Events on logistics, scheduling, volunteers and on-ground execution.'
+      },
+      {
+        role: 'Design Head',
+        name: '[Add Member Name]',
+        bio: '[Add Short Bio]',
+        linkedin: '[Add LinkedIn]',
+        photo: './assets/images/team-7.jpg',
+        duty: 'Leads posters, social graphics and event collateral, and keeps the visual identity consistent.'
+      },
+      {
+        role: 'Publicity Head',
+        name: '[Add Member Name]',
+        bio: '[Add Short Bio]',
+        linkedin: '[Add LinkedIn]',
+        photo: './assets/images/team-8.jpg',
+        duty: 'Runs outreach and promotion, builds cross-promotion links and tracks engagement.'
+      }
+    ];
+    const team = teamMembers.map((member, i) => {
+      const id = 't' + i, h = hov(id), on = hk === id;
+      const ry = on ? (hxp - 0.5) * 14 : 0, rx = on ? (0.5 - hyp) * 14 : 0;
+      return Object.assign({}, h, {
+        role: member.role,
+        name: member.name,
+        bio: member.bio,
+        linkedin: member.linkedin,
+        duty: member.duty,
+        photoSrc: member.photo || './assets/images/team-1.jpg',
+        cardStyle: 'flex:1 1 240px;min-width:0;box-sizing:border-box;border:1px solid ' + (on ? '#2563EB' : '#DBEAFE') + ';border-radius:18px;overflow:hidden;background:#ffffff;transition:transform .15s ease-out, box-shadow .2s ease, border-color .2s ease;transform:' + (on ? 'rotateX(' + rx.toFixed(2) + 'deg) rotateY(' + ry.toFixed(2) + 'deg) translateY(-6px)' : 'none') + ';box-shadow:' + (on ? '0 22px 40px rgba(16,42,67,.2)' : '0 1px 0 rgba(16,42,67,.04)'),
+        photoStyle: 'position:relative;height:200px;overflow:hidden;display:flex;align-items:center;justify-content:center;background:' + (on ? 'radial-gradient(180px circle at ' + Math.round(hxp * 100) + '% ' + Math.round(hyp * 100) + '%, #93C5FD, #DBEAFE 75%)' : '#DBEAFE'),
+        overlayStyle: 'position:absolute;left:0;right:0;bottom:0;padding:16px;background:#102A43;color:#ffffff;font-size:13px;line-height:1.45;transition:transform .3s ease;transform:translateY(' + (on ? '0' : '101%') + ')'
+      });
+    });
+    const founders = ['Aathira', 'Bhavya', 'Chaarmikha', 'Kairav', 'Krishnapriya', 'Palakh', 'Sandhya'];
+
+    /* ---- facts ---- */
+    const facts = [
+      { title: 'Open to every SIAS student', body: 'Membership is open to all students at SIAS. Advisors are also members, as non-voting representatives of the Club.' },
+      { title: 'A council of eight', body: 'The Executive Council shares power horizontally and answers collectively for the Club staying true to its mission.' },
+      { title: 'Chosen by application', body: 'Council members are selected through an application and interview run by the current council. Candidates apply for one position only.' }
+    ];
+
+    /* ---- publications ---- */
+    const pubs = [0, 1, 2].map((i) => {
+      const id = 'p' + i, on = hk === id, h = hov(id);
+      return Object.assign({}, h, { style: 'flex:1 1 320px;min-width:0;box-sizing:border-box;background:#ffffff;border:1px solid #DBEAFE;border-radius:16px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s ease, box-shadow .2s ease;transform:' + (on ? 'translateY(-5px)' : 'none') + ';box-shadow:' + (on ? '0 16px 32px rgba(16,42,67,.14)' : 'none') });
+    });
+
+    const deltaTile = '';
+    return { ringStyle, dotStyle, heroStyle, g, graphMove, graphLeave, demandUp, supplyUp, shiftReset, rootMove, rootLeave, pillars, pillarTitle: pillarsData[pk].title, pillarPoints: pillarsData[pk].points, activities, team, founders, facts, pubs, deltaTile };
+  }
+}
+</script>
+</body>
+</html>

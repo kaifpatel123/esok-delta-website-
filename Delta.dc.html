@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Delta, Krea's economics fest</title>
+<script src="./assets/vendor/react.js"></script>
+<script src="./assets/vendor/react-dom.js"></script>
+<script src="./assets/js/support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Graduate&amp;family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&amp;family=DM+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0;font-family:'DM Sans',system-ui,sans-serif;color:#1F2937;background:#ffffff}
+a{color:#B91C1C}a:hover{color:#7f1d1d}
+.dnav a{color:#ffffff;text-decoration:none;font-weight:600;font-size:15px;padding:10px 12px;border-radius:8px;display:inline-block;transition:background .2s ease, transform .2s ease}
+.dnav a:hover{background:rgba(250,204,21,.28);transform:translateY(-2px)}
+.dph{background:#FEF3C7;border:1px dashed #B91C1C;border-radius:6px;padding:1px 8px;color:#7f1d1d;font-size:.92em}
+.dbtn{display:inline-block;text-decoration:none;font-weight:700;padding:14px 24px;border-radius:10px;transition:transform .2s ease, box-shadow .2s ease}
+.dbtn:hover{transform:translate(-2px,-2px);box-shadow:5px 5px 0 #1F2937}
+.disp{font-family:'Bricolage Grotesque',system-ui,sans-serif}
+.varsity{font-family:'Graduate','Bricolage Grotesque',serif}
+.tb{font:inherit;cursor:pointer;transition:transform .2s ease, background .2s ease, color .2s ease}
+.tb:hover{transform:translate(-2px,-2px)}
+.pill{transition:transform .2s ease, background .2s ease}
+.pill:hover{transform:translateY(-3px) rotate(-2deg)}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.rise{animation:rise .7s ease both}.d2{animation-delay:.15s}
+@media (prefers-reduced-motion: reduce){.rise{animation:none}}
+</style>
+</helmet>
+<div onMouseMove="{{ rootMove }}" onMouseLeave="{{ rootLeave }}" style="position:relative;overflow:hidden;width:100%;box-sizing:border-box;background:#ffffff">
+
+<div aria-hidden="true" style="{{ ringStyle }}"></div>
+<div aria-hidden="true" style="{{ dotStyle }}"></div>
+
+<!-- Parent bar -->
+<div style="background:#1F2937;color:#ffffff;position:relative;z-index:2">
+<div style="max-width:1200px;margin:0 auto;padding:10px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;font-size:14px">
+<a href="Main.dc.html" style="color:#FACC15;font-weight:600;text-decoration:none">← Back to Krea University Economics Club</a>
+<span style="color:#d1d5db">Delta is the Economics Club's flagship fest</span>
+</div>
+</div>
+
+<!-- Delta header -->
+<header style="background:#B91C1C;position:relative;z-index:2">
+<div style="max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px">
+<a href="#top" class="varsity" style="text-decoration:none;color:#FACC15;font-size:28px;letter-spacing:.06em;display:flex;align-items:center;gap:10px"><span style="display:inline-block;background:#FACC15;color:#B91C1C;width:38px;height:38px;border-radius:8px;text-align:center;line-height:38px">Δ</span>DELTA</a>
+<nav class="dnav" aria-label="Delta" style="display:flex;flex-wrap:wrap;gap:2px;align-items:center">
+<a href="#about">About</a>
+<a href="#theme">Theme</a>
+<a href="#edition">26–27</a>
+<a href="#archive">Delta 1.0</a>
+<a href="#team">Team</a>
+<a href="#gallery">Gallery</a>
+<a href="#faqs">Contact</a>
+<a href="#register" style="background:#FACC15;color:#1F2937;margin-left:6px">Register</a>
+</nav>
+</div>
+</header>
+
+<!-- Hero -->
+<section id="top" style="{{ heroStyle }}">
+<div aria-hidden="true" style="position:absolute;right:-140px;top:-100px;width:520px;height:520px;background:#EF4444;transform:rotate(45deg);opacity:.5"></div>
+<div style="max-width:1200px;margin:0 auto;padding:72px 24px 88px;position:relative;display:flex;flex-direction:column;gap:22px">
+<span style="align-self:flex-start;background:#FACC15;color:#1F2937;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:999px">Delta 26–27 · Second edition</span>
+<div onMouseMove="{{ wordMove }}" onMouseLeave="{{ wordLeave }}" role="img" aria-label="DELTA" style="display:flex;gap:6px;align-self:flex-start;cursor:pointer;padding:10px 0">
+<sc-for list="{{ letters }}" as="l" hint-placeholder-count="5"><span aria-hidden="true" class="varsity" style="{{ l.style }}">{{ l.ch }}</span></sc-for>
+</div>
+<p class="disp" style="margin:0;font-size:32px;line-height:1.15;color:#ffffff;font-weight:800;max-width:720px">Ex Machina: The Power Behind the System</p>
+<p style="margin:0;max-width:640px;font-size:18px;line-height:1.6;color:#ffffff">Krea University's flagship economics fest. When an economic system changes, who or what is actually shaping that change?</p>
+<div style="display:flex;flex-wrap:wrap;gap:16px">
+<div style="background:#ffffff;border-radius:12px;padding:12px 18px"><div style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#B91C1C">Date</div><div><span class="dph">[Add Confirmed Festival Dates]</span></div></div>
+<div style="background:#ffffff;border-radius:12px;padding:12px 18px"><div style="font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#B91C1C">Venue</div><div><span class="dph">[Add Venue]</span></div></div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+<a class="dbtn" href="#theme" style="background:#FACC15;color:#1F2937">Explore the theme</a>
+<a class="dbtn" href="#archive" style="background:transparent;color:#ffffff;border:2px solid #ffffff">See Delta 1.0</a>
+</div>
+<span style="color:#FEF3C7;font-size:14px">Move over the DELTA letters. Registration for 26–27 is not open yet.</span>
+</div>
+</section>
+
+<!-- About -->
+<section id="about" style="background:#FEF3C7">
+<div style="max-width:1200px;margin:0 auto;padding:80px 24px;display:flex;flex-wrap:wrap;gap:40px">
+<div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:14px">
+<span style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#B91C1C">What is Delta?</span>
+<h2 class="disp" style="margin:0;font-size:44px;line-height:1.1;font-weight:800;color:#1F2937">A flagship academic and cultural event.</h2>
+</div>
+<div style="flex:1 1 460px;min-width:0;display:flex;flex-direction:column;gap:14px;line-height:1.65">
+<p style="margin:0">Delta is Krea University's flagship economics fest, presented by the Economics Club. It brings together diverse perspectives on the forces that shape, influence and redirect economic systems.</p>
+<p style="margin:0">It is a platform for learning and collaboration across disciplines, where theory meets practice and students engage directly with thought leaders, practitioners and innovators.</p>
+<p style="margin:0">The first edition, themed "A World in Crisis: Everything Everywhere All at Once", ran on 21 and 22 March 2026. Delta 26–27 returns with a new theme.</p>
+</div>
+</div>
+</section>
+
+<!-- Theme -->
+<section id="theme" style="background:#1F2937;color:#ffffff">
+<div style="max-width:1200px;margin:0 auto;padding:80px 24px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:12px;max-width:760px">
+<span style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#FACC15">Theme 26–27</span>
+<h2 class="disp" style="margin:0;font-size:48px;line-height:1.08;font-weight:800;color:#ffffff">Ex Machina: The Power Behind the System</h2>
+<p style="margin:0;line-height:1.65;color:#e5e7eb">The name comes from deus ex machina, an outside force entering a difficult situation and changing its outcome. Here the "machine" is the economy: markets, governments, financial institutions, firms and digital platforms. The "power behind the system" is the people, institutions, rules, technologies and incentives that redirect outcomes.</p>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:24px;align-items:stretch">
+<div role="tablist" aria-label="Forms of power" style="flex:0 1 280px;display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start">
+<sc-for list="{{ powers }}" as="w" hint-placeholder-count="6">
+<button type="button" role="tab" class="tb" onClick="{{ w.pick }}" onMouseEnter="{{ w.pick }}" style="{{ w.style }}">{{ w.label }}</button>
+</sc-for>
+</div>
+<div style="flex:1 1 380px;min-width:0;background:#B91C1C;border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:12px;box-shadow:8px 8px 0 #FACC15">
+<span style="font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#FEF3C7">Forms of power</span>
+<h3 class="disp" style="margin:0;font-size:30px;font-weight:800;color:#FACC15">{{ powerTitle }}</h3>
+<p style="margin:0;line-height:1.65;color:#ffffff;font-size:17px">{{ powerBody }}</p>
+</div>
+</div>
+<p style="margin:0;max-width:760px;line-height:1.65;color:#e5e7eb">No intervention is completely neutral. A regulation may protect consumers and raise costs; automation may lift productivity and cut certain jobs; a bailout may prevent a collapse and encourage future risk. The theme asks who ultimately bears the cost of a decision.</p>
+</div>
+</section>
+
+<!-- 26-27 edition -->
+<section id="edition" style="background:#ffffff">
+<div style="max-width:1200px;margin:0 auto;padding:80px 24px;display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:12px;max-width:700px">
+<span style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#B91C1C">Delta 26–27</span>
+<h2 class="disp" style="margin:0;font-size:44px;line-height:1.1;font-weight:800">Events, schedule and registration</h2>
+<p style="margin:0;line-height:1.6">The 26–27 programme has not been supplied yet, so nothing here is confirmed. Add each event once and it appears below.</p>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:24px">
+<sc-for list="{{ newEvents }}" as="e" hint-placeholder-count="3">
+<article onMouseEnter="{{ e.onEnter }}" onMouseMove="{{ e.onMove }}" onMouseLeave="{{ e.onLeave }}" style="{{ e.style }}">
+<div style="height:130px;background:#FACC15;display:flex;align-items:center;justify-content:center;border-bottom:2px solid #1F2937;font-weight:700;color:#7f1d1d;font-size:14px">[Add Event Poster]</div>
+<div style="padding:22px;display:flex;flex-direction:column;gap:10px">
+<h3 class="disp" style="margin:0;font-size:22px;font-weight:800"><span class="dph">[Add Delta Event Name]</span></h3>
+<dl style="margin:0;display:flex;flex-direction:column;gap:6px;font-size:13px">
+<sc-for list="{{ eventFields }}" as="f" hint-placeholder-count="6">
+<div style="display:flex;flex-wrap:wrap;gap:6px;justify-content:space-between;border-top:1px solid #FEF3C7;padding-top:6px"><dt style="font-weight:700;color:#B91C1C">{{ f.k }}</dt><dd style="margin:0"><span class="dph">{{ f.v }}</span></dd></div>
+</sc-for>
+</dl>
+</div>
+</article>
+</sc-for>
+</div>
+<div id="register" style="background:#FACC15;border-radius:20px;padding:36px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px">
+<div style="flex:1 1 380px;display:flex;flex-direction:column;gap:8px">
+<h3 class="disp" style="margin:0;font-size:32px;font-weight:800;color:#1F2937">Registration</h3>
+<p style="margin:0;line-height:1.55;color:#1F2937">Registration for Delta 26–27 is not open. The button below stays inactive until a valid link is added.</p>
+</div>
+<span class="dbtn" aria-disabled="true" style="background:#1F2937;color:#FEF3C7;border:2px dashed #FEF3C7">[Add Registration URL]</span>
+</div>
+</div>
+</section>
+
+<!-- Archive -->
+<section id="archive" style="background:#7f1d1d;color:#ffffff">
+<div style="max-width:1200px;margin:0 auto;padding:80px 24px;display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:12px;max-width:760px">
+<span style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#FACC15">Previous edition</span>
+<h2 class="varsity" style="margin:0;font-size:48px;line-height:1.1;color:#FACC15">Delta 1.0: The World in Crisis</h2>
+<p style="margin:0;line-height:1.65;color:#FEF3C7">Everything, everywhere, all at once. 21 and 22 March 2026, themed on how today's global crises are interconnected and amplify one another.</p>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:20px">
+<h3 class="disp" style="margin:0;font-size:28px;font-weight:800;color:#ffffff">Flow of the event</h3>
+<div role="tablist" aria-label="Day" style="display:flex;gap:8px">
+<sc-for list="{{ days }}" as="d" hint-placeholder-count="2"><button type="button" role="tab" class="tb" onClick="{{ d.pick }}" style="{{ d.style }}">{{ d.label }}</button></sc-for>
+</div>
+<div style="background:#ffffff;color:#1F2937;border-radius:16px;overflow-x:auto">
+<table style="width:100%;min-width:520px;border-collapse:collapse;font-size:16px">
+<thead><tr style="text-align:left;background:#FACC15"><th style="padding:14px 18px">Time</th><th style="padding:14px 18px">Event</th><th style="padding:14px 18px">Venue</th></tr></thead>
+<tbody>
+<sc-for list="{{ rows }}" as="r" hint-placeholder-count="4">
+<tr style="border-bottom:1px solid #FEF3C7"><td style="padding:14px 18px;font-weight:600">{{ r.time }}</td><td style="padding:14px 18px">{{ r.what }}</td><td style="padding:14px 18px;font-weight:600;color:#B91C1C">{{ r.venue }}</td></tr>
+</sc-for>
+</tbody>
+</table>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:20px">
+<h3 class="disp" style="margin:0;font-size:28px;font-weight:800;color:#ffffff">Competitive games · prize of Rs 5,000</h3>
+<div style="display:flex;flex-wrap:wrap;gap:20px">
+<sc-for list="{{ games }}" as="g" hint-placeholder-count="3">
+<button type="button" onClick="{{ g.onClick }}" onMouseEnter="{{ g.onEnter }}" onMouseMove="{{ g.onMove }}" onMouseLeave="{{ g.onLeave }}" style="{{ g.style }}">
+<span class="disp" style="display:block;font-size:26px;font-weight:800;color:#FACC15">{{ g.title }}</span>
+<span style="display:block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#FEF3C7;margin-top:4px">{{ g.tag }}</span>
+<span style="display:block;line-height:1.55;margin-top:12px;color:#ffffff">{{ g.about }}</span>
+<span style="{{ g.moreStyle }}">{{ g.more }}</span>
+</button>
+</sc-for>
+</div>
+<span style="font-size:13px;color:#FEF3C7">Hover or tap a game for how it plays.</span>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:20px">
+<h3 class="disp" style="margin:0;font-size:28px;font-weight:800;color:#ffffff">Panel and speakers</h3>
+<div style="background:#B91C1C;border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:8px">
+<span class="disp" style="font-size:22px;font-weight:800;color:#FACC15">Panel: The Future of Work. Automation, AI and the Changing Labour Market</span>
+<span style="line-height:1.6;color:#ffffff">How AI, machine learning and automation may reshape employment structures, wages and the organisation of labour, and whether change creates new industries or leads to long-term displacement.</span>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:20px">
+<sc-for list="{{ speakers }}" as="s" hint-placeholder-count="5">
+<div onMouseEnter="{{ s.onEnter }}" onMouseMove="{{ s.onMove }}" onMouseLeave="{{ s.onLeave }}" style="{{ s.cardStyle }}">
+<div style="position:relative;overflow:hidden;aspect-ratio:4/5;background:#B91C1C">
+<img src="{{ s.img }}" alt="{{ s.name }}" style="{{ s.imgStyle }}">
+<div style="{{ s.overlayStyle }}">{{ s.bio }}</div>
+</div>
+<div style="padding:16px 18px;display:flex;flex-direction:column;gap:2px;background:#1F2937">
+<span class="disp" style="font-weight:800;font-size:20px;color:#FACC15">{{ s.name }}</span>
+<span style="font-size:13px;color:#e5e7eb">{{ s.role }}</span>
+</div>
+</div>
+</sc-for>
+</div>
+</div>
+
+<div style="display:flex;flex-direction:column;gap:20px">
+<h3 class="disp" style="margin:0;font-size:28px;font-weight:800;color:#ffffff">Sponsors</h3>
+<div style="display:flex;flex-wrap:wrap;gap:20px">
+<sc-for list="{{ sponsors }}" as="p" hint-placeholder-count="3">
+<div onMouseEnter="{{ p.onEnter }}" onMouseLeave="{{ p.onLeave }}" style="{{ p.style }}">
+<img src="{{ p.img }}" alt="{{ p.name }} logo" style="width:100%;max-width:200px;height:auto;border-radius:12px">
+<span class="disp" style="font-weight:800;font-size:20px;color:#FACC15;text-align:center">{{ p.name }}</span>
+</div>
+</sc-for>
+</div>
+<div style="background:#B91C1C;border-radius:14px;padding:16px 20px;color:#FEF3C7;font-size:14px">Sponsors for Delta 26–27: <span class="dph">[Add Sponsor Logo and Name]</span></div>
+</div>
+</div>
+</section>
+
+<!-- Team -->
+<section id="team" style="background:#FEF3C7">
+<div style="max-width:1200px;margin:0 auto;padding:80px 24px;display:flex;flex-direction:column;gap:36px">
+<div style="display:flex;flex-direction:column;gap:12px;max-width:760px">
+<span style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#B91C1C">The Delta team</span>
+<h2 class="disp" style="margin:0;font-size:44px;line-height:1.1;font-weight:800">The people who build Delta</h2>
+<p style="margin:0;line-height:1.6">Delta runs on its own, larger team, separate from the Club's Executive Council. Delta 1.0 was run by two organisers. The Delta 2.0 team is below, with placeholders for every name, photo and email.</p>
+</div>
+<h3 class="disp" style="margin:0;font-size:24px;font-weight:800;color:#B91C1C">Delta 1.0 · Organisers</h3>
+<div style="display:flex;flex-wrap:wrap;gap:24px">
+<sc-for list="{{ organisers }}" as="o" hint-placeholder-count="2">
+<div onMouseEnter="{{ o.onEnter }}" onMouseMove="{{ o.onMove }}" onMouseLeave="{{ o.onLeave }}" style="{{ o.cardStyle }}">
+<div style="flex:0 0 190px;position:relative;overflow:hidden;background:#B91C1C;min-height:230px">
+<img src="{{ o.img }}" alt="{{ o.name }}" style="{{ o.imgStyle }}">
+</div>
+<div style="flex:1 1 200px;min-width:0;padding:20px;display:flex;flex-direction:column;gap:6px;justify-content:center">
+<span class="disp" style="font-size:24px;font-weight:800;color:#1F2937">{{ o.name }}</span>
+<span style="font-weight:700;color:#B91C1C;font-size:14px;letter-spacing:.06em;text-transform:uppercase">Organiser</span>
+<a href="{{ o.mail }}" style="font-size:14px;word-break:break-all">{{ o.email }}</a>
+<span style="font-size:14px">{{ o.phone }}</span>
+</div>
+</div>
+</sc-for>
+</div>
+<div style="height:2px;background:#1F2937;opacity:.15;margin:12px 0"></div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<span style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#B91C1C">Delta 2.0 (26–27)</span>
+<h3 class="disp" style="margin:0;font-size:32px;font-weight:800;color:#1F2937">The Delta 2.0 team</h3>
+</div>
+<h3 class="disp" style="margin:0;font-size:24px;font-weight:800;color:#B91C1C">Heads</h3>
+<div style="display:flex;flex-wrap:wrap;gap:16px">
+<sc-for list="{{ heads }}" as="c" hint-placeholder-count="5">
+<div onMouseEnter="{{ c.onEnter }}" onMouseMove="{{ c.onMove }}" onMouseLeave="{{ c.onLeave }}" style="{{ c.style }}">
+<div style="{{ c.avatarStyle }}"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#B91C1C" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg></div>
+<span style="font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#B91C1C">{{ c.role }}</span>
+<span style="font-weight:700;font-size:15px"><span class="dph">[Add Name]</span></span>
+<span style="font-size:13px"><span class="dph">[Add Photo]</span></span>
+<span style="font-size:13px"><span class="dph">[Add Email]</span></span>
+</div>
+</sc-for>
+</div>
+<sc-for list="{{ teams }}" as="t" hint-placeholder-count="5">
+<div style="display:flex;flex-direction:column;gap:14px;margin-top:12px">
+<h3 class="disp" style="margin:0;font-size:24px;font-weight:800;color:#B91C1C">{{ t.title }}</h3>
+<div style="display:flex;flex-wrap:wrap;gap:16px">
+<sc-for list="{{ t.people }}" as="c" hint-placeholder-count="4">
+<div onMouseEnter="{{ c.onEnter }}" onMouseMove="{{ c.onMove }}" onMouseLeave="{{ c.onLeave }}" style="{{ c.style }}">
+<div style="{{ c.avatarStyle }}"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#B91C1C" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg></div>
+<span style="font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#B91C1C">{{ c.role }}</span>
+<span style="font-weight:700;font-size:15px"><span class="dph">[Add Name]</span></span>
+<span style="font-size:13px"><span class="dph">[Add Photo]</span></span>
+<span style="font-size:13px"><span class="dph">[Add Email]</span></span>
+</div>
+</sc-for>
+</div>
+</div>
+</sc-for>
+</div>
+</section>
+
+<!-- Gallery -->
+<section id="gallery" style="background:#ffffff">
+<div style="max-width:1200px;margin:0 auto;padding:80px 24px;display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:column;gap:12px;max-width:680px">
+<span style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#B91C1C">Gallery</span>
+<h2 class="disp" style="margin:0;font-size:44px;line-height:1.1;font-weight:800">Moments from Delta</h2>
+<p style="margin:0;line-height:1.6">No event photographs were supplied. Group them by edition when you add them.</p>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:8px"><span style="background:#B91C1C;color:#ffffff;font-weight:700;font-size:14px;padding:8px 16px;border-radius:999px">Delta 1.0</span><span style="background:#FEF3C7;color:#7f1d1d;font-weight:700;font-size:14px;padding:8px 16px;border-radius:999px">Delta 26–27</span></div>
+<div style="display:flex;flex-wrap:wrap;gap:16px">
+<sc-for list="{{ shots }}" as="g" hint-placeholder-count="6">
+<div onMouseEnter="{{ g.onEnter }}" onMouseLeave="{{ g.onLeave }}" style="{{ g.style }}">[Add Gallery Image]</div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- Contact -->
+<section id="faqs" style="background:#FACC15">
+<div style="max-width:1200px;margin:0 auto;padding:80px 24px;display:flex;flex-wrap:wrap;gap:40px">
+<div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:14px">
+<h2 class="disp" style="margin:0;font-size:40px;font-weight:800;color:#1F2937">Contact Delta</h2>
+<div style="background:#ffffff;border-radius:14px;padding:18px 22px;display:flex;flex-direction:column;gap:8px">
+<span style="font-weight:700;color:#B91C1C">Email</span><a href="mailto:sias.esok@krea.ac.in">sias.esok@krea.ac.in</a>
+<span style="font-weight:700;color:#B91C1C">Instagram</span><a href="https://www.instagram.com/economicsclub_krea" target="_blank" rel="noopener">@economicsclub_krea</a>
+<span style="font-weight:700;color:#B91C1C">Organisers</span><span>Divy Khetan and Avani Vaidya. Details are in the team section above.</span>
+</div>
+</div>
+<div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:12px">
+<h2 class="disp" style="margin:0;font-size:40px;font-weight:800;color:#1F2937">FAQs</h2>
+<sc-for list="{{ faqs }}" as="q" hint-placeholder-count="3">
+<div style="background:#ffffff;border:2px solid #1F2937;border-radius:12px;padding:16px 20px;display:flex;flex-direction:column;gap:6px"><span style="font-weight:700"><span class="dph">[Add Question]</span></span><span style="font-size:14px"><span class="dph">[Add Confirmed Answer]</span></span></div>
+</sc-for>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer style="background:#7f1d1d;color:#FEF3C7">
+<div style="max-width:1200px;margin:0 auto;padding:36px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px">
+<span class="varsity" style="font-size:22px;color:#FACC15">Δ DELTA</span>
+<div style="display:flex;flex-wrap:wrap;gap:20px;font-size:14px">
+<a href="#theme" style="color:#FEF3C7">Theme</a>
+<a href="#archive" style="color:#FEF3C7">Delta 1.0</a>
+<a href="#team" style="color:#FEF3C7">Team</a>
+<a href="#gallery" style="color:#FEF3C7">Gallery</a>
+</div>
+<a href="Main.dc.html" style="color:#FACC15;font-weight:600">Return to Krea University Economics Club</a>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":7600}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.state || {};
+    const set = (o) => this.setState(o);
+    const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+
+    /* ---- cursor ---- */
+    const cx = s.cx, cy = s.cy, has = typeof cx === 'number';
+    const ringStyle = 'position:absolute;left:0;top:0;width:44px;height:44px;margin:-22px 0 0 -22px;border-radius:50%;border:2px solid #FACC15;mix-blend-mode:difference;pointer-events:none;z-index:50;transition:transform .18s ease-out, opacity .2s ease;opacity:' + (has ? 1 : 0) + ';transform:translate(' + (has ? cx : 0) + 'px,' + (has ? cy : 0) + 'px) scale(' + (s.hk ? 1.7 : 1) + ')';
+    const dotStyle = 'position:absolute;left:0;top:0;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:#FACC15;mix-blend-mode:difference;pointer-events:none;z-index:50;opacity:' + (has ? 1 : 0) + ';transform:translate(' + (has ? cx : 0) + 'px,' + (has ? cy : 0) + 'px)';
+    const hx = has ? cx : 700, hy = has ? cy - 110 : 240;
+    const heroStyle = 'position:relative;overflow:hidden;background:radial-gradient(480px circle at ' + hx + 'px ' + hy + 'px, rgba(250,204,21,.38), rgba(250,204,21,0) 62%), #B91C1C';
+    const rootMove = (e) => {
+      const now = Date.now();
+      if (this._t && now - this._t < 28) return;
+      this._t = now;
+      const r = e.currentTarget.getBoundingClientRect();
+      set({ cx: e.clientX - r.left, cy: e.clientY - r.top });
+    };
+    const rootLeave = () => set({ cx: null, cy: null });
+
+    /* ---- wordmark: letters rise toward the cursor ---- */
+    const wf = typeof s.wf === 'number' ? s.wf : null;
+    const wordMove = (e) => {
+      const r = e.currentTarget.getBoundingClientRect();
+      set({ wf: (e.clientX - r.left) / r.width });
+    };
+    const wordLeave = () => set({ wf: null });
+    const letters = ['D', 'E', 'L', 'T', 'A'].map((ch, i) => {
+      const c = (i + 0.5) / 5;
+      const inf = wf === null ? 0 : Math.max(0, 1 - Math.abs(wf - c) / 0.28);
+      const yellow = inf > 0.45;
+      return { ch, style: 'display:inline-block;font-size:150px;line-height:1;color:' + (yellow ? '#ffffff' : '#FACC15') + ';-webkit-text-stroke:3px ' + (yellow ? '#FACC15' : '#7f1d1d') + ';transition:transform .15s ease-out, color .15s ease;transform:translateY(' + (-inf * 26).toFixed(1) + 'px) rotate(' + ((wf === null ? 0 : (wf - c)) * inf * 30).toFixed(1) + 'deg) scale(' + (1 + inf * 0.12).toFixed(3) + ')' };
+    });
+
+    /* ---- hover helper ---- */
+    const hov = (id) => ({
+      onEnter: () => set({ hk: id }),
+      onLeave: () => set({ hk: null }),
+      onMove: (e) => {
+        const r = e.currentTarget.getBoundingClientRect();
+        set({ hk: id, hxp: (e.clientX - r.left) / r.width, hyp: (e.clientY - r.top) / r.height });
+      }
+    });
+    const hk = s.hk, hxp = typeof s.hxp === 'number' ? s.hxp : 0.5, hyp = typeof s.hyp === 'number' ? s.hyp : 0.5;
+    const tilt = (id, k) => {
+      const on = hk === id;
+      return on ? 'perspective(900px) rotateX(' + ((0.5 - hyp) * k).toFixed(2) + 'deg) rotateY(' + ((hxp - 0.5) * k).toFixed(2) + 'deg) translateY(-6px)' : 'none';
+    };
+
+    /* ---- forms of power (from the proposal) ---- */
+    const P = [
+      ['Governments', 'Influence markets through taxes, subsidies, regulation and public spending.'],
+      ['Central banks', 'Affect borrowing, investment and inflation through monetary policy.'],
+      ['Firms', 'Influence prices, employment, competition and innovation.'],
+      ['Investors', 'Decide where capital flows.'],
+      ['International institutions', 'Can shape national policy.'],
+      ['Digital platforms', 'Algorithms increasingly affect what people buy, what information they see, how prices are set, and who gets access to jobs, credit or opportunities.']
+    ];
+    const pk = typeof s.power === 'number' ? s.power : 0;
+    const powers = P.map((p, i) => ({ label: p[0], pick: () => set({ power: i }), style: 'min-height:44px;padding:0 16px;border-radius:999px;font-weight:700;border:2px solid #FACC15;background:' + (i === pk ? '#FACC15' : 'transparent') + ';color:' + (i === pk ? '#1F2937' : '#FACC15') }));
+
+    /* ---- Delta 26-27 placeholders ---- */
+    const newEvents = [0, 1, 2].map((i) => {
+      const id = 'ne' + i, h = hov(id);
+      return Object.assign({}, h, { style: 'flex:1 1 320px;min-width:0;box-sizing:border-box;border:2px solid #1F2937;border-radius:16px;overflow:hidden;background:#ffffff;transition:transform .15s ease-out, box-shadow .2s ease;transform:' + tilt(id, 8) + ';box-shadow:' + (hk === id ? '8px 8px 0 #1F2937' : 'none') });
+    });
+    const eventFields = [
+      { k: 'Category', v: '[Add Category]' }, { k: 'Participation', v: '[Individual or Team]' }, { k: 'Eligibility', v: '[Add Eligibility]' },
+      { k: 'Format and rules', v: '[Add Format]' }, { k: 'Date and time', v: '[Add Date and Time]' }, { k: 'Prize', v: '[Add Prize, if confirmed]' }
+    ];
+
+    /* ---- Delta 1.0 flow ---- */
+    const day = s.day || 1;
+    const days = [[1, 'Day 1 · 21 March 2026'], [2, 'Day 2 · 22 March 2026']].map((d) => ({
+      label: d[1], pick: () => set({ day: d[0] }),
+      style: 'min-height:44px;padding:0 18px;border-radius:10px;font-weight:700;border:2px solid #FACC15;background:' + (day === d[0] ? '#FACC15' : 'transparent') + ';color:' + (day === d[0] ? '#1F2937' : '#FACC15')
+    }));
+    const FLOW = {
+      1: [['11:30 AM – 1:30 PM', 'Panel Discussion', 'SH 1'], ['2:30 – 5:00 PM', 'Capital Conquest', 'SH 1'], ['5:00 – 7:00 PM', 'Policy Shark Tank', 'NAB 2G'], ['8:30 – 10:30 PM', 'Wallstreet Survivor', 'NAB 1G']],
+      2: [['2:00 PM', 'Speaker Sessions', 'SH 1'], ['5:00 PM', 'Club Stalls', 'OAT'], ['8:00 PM', 'Layam Performance', 'OAT']]
+    };
+    const rows = FLOW[day].map((r) => ({ time: r[0], what: r[1], venue: r[2] }));
+
+    /* ---- games ---- */
+    const G = [
+      ['Policy Shark Tank', 'Decide. Defend and deliver.', 'A high-pressure policy simulation. Teams design and defend responses to evolving national crises across three escalating rounds.', 'Teams get a national context (Country Alpha, Beta or Gamma) and pitch to stakeholder "Sharks" representing firms, households, consumers and social and environmental groups.'],
+      ['Capital Conquest', 'Build. Trade and conquer.', 'A resource strategy simulation. Participants manage national assets, trade military resources and engage in strategic warfare to accumulate wealth.', 'Teams bid for countries, trade resources as news flashes shift the market, then launch covert attacks in the War Room. Highest corpus wins: gold plus the value of all materials held.'],
+      ['Wallstreet Survivor', 'Read, react and trade.', 'A live trading simulation. Teams act as trading desks navigating global economic turmoil across 10 fast rounds, each triggered by a global crisis.', 'Teams invest across tech, banking, energy and oil, and gold and commodities. Highest net worth, cash plus market value of assets, at the final bell wins.']
+    ];
+    const games = G.map((g, i) => {
+      const id = 'g' + i, h = hov(id), open = hk === id || s.openG === id;
+      return Object.assign({}, h, {
+        title: g[0], tag: g[1], about: g[2], more: g[3],
+        onClick: () => set({ openG: s.openG === id ? null : id }),
+        style: 'flex:1 1 320px;min-width:0;box-sizing:border-box;text-align:left;font:inherit;cursor:pointer;border-radius:16px;padding:26px;border:2px solid #FACC15;background:' + (hk === id ? 'radial-gradient(300px circle at ' + Math.round(hxp * 100) + '% ' + Math.round(hyp * 100) + '%, #EF4444, #B91C1C 72%)' : '#B91C1C') + ';transform:' + (hk === id ? 'translate(-3px,-3px)' : 'none') + ';box-shadow:' + (hk === id ? '6px 6px 0 #FACC15' : 'none') + ';transition:transform .15s ease-out, box-shadow .15s ease-out',
+        moreStyle: 'display:block;overflow:hidden;color:#FEF3C7;line-height:1.5;transition:max-height .3s ease, opacity .3s ease, margin .3s ease;max-height:' + (open ? '160px' : '0') + ';opacity:' + (open ? 1 : 0) + ';margin-top:' + (open ? '14px' : '0')
+      });
+    });
+
+    /* ---- speakers ---- */
+    const S = [
+      ['Prof Shyam Kumar Sudhakar', 'Panel', './assets/fbe1777483844f19f670429bc0fd0e6c.jpg', 'Panellist, The Future of Work.'],
+      ['Prof Sharon Buteau', 'Panel', './assets/944f213ff198f453dec67a87f3905012.jpg', 'Panellist, The Future of Work.'],
+      ['Sunil Subramaniam', 'Speaker', './assets/cbbd69aa4fe764ad934c6eaddbdbb4dc.jpg', 'Financial services leader with over 40 years of experience. Retired as MD of Sundaram Mutual in June 2024. Runs the YouTube channel Sense and Simplicity on financial literacy.'],
+      ['Ruhie Kumar', 'Speaker', './assets/7b9bf42b63bb82c5c22b670a38b8325b.jpg', 'Climate justice campaigner and communications strategist. Co-convener of the Heatwave Action Coalition and creator of ClimateBabbler.'],
+      ['Yash Agarwal', 'Speaker', './assets/d855759b81a480bd0bc73b42048f0681.jpg', 'Public policy professional in technology and digital regulation. Works with ICANN in South Asia and founded Public Policy India.']
+    ];
+    const speakers = S.map((p, i) => {
+      const id = 's' + i, h = hov(id), on = hk === id;
+      return Object.assign({}, h, {
+        name: p[0], role: p[1], img: p[2], bio: p[3],
+        cardStyle: 'flex:1 1 200px;min-width:0;box-sizing:border-box;border:2px solid #FACC15;border-radius:16px;overflow:hidden;background:#1F2937;transition:transform .15s ease-out, box-shadow .2s ease;transform:' + tilt(id, 10) + ';box-shadow:' + (on ? '8px 8px 0 #FACC15' : 'none'),
+        imgStyle: 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .2s ease-out, filter .3s ease;filter:' + (on ? 'grayscale(0) saturate(1.15)' : 'grayscale(.85)') + ';transform:scale(' + (on ? 1.1 : 1) + ') translate(' + (on ? ((0.5 - hxp) * 14).toFixed(1) : 0) + 'px,' + (on ? ((0.5 - hyp) * 14).toFixed(1) : 0) + 'px)',
+        overlayStyle: 'position:absolute;left:0;right:0;bottom:0;padding:14px;background:rgba(31,41,55,.92);color:#ffffff;font-size:13px;line-height:1.45;transition:transform .3s ease;transform:translateY(' + (on ? '0' : '101%') + ')'
+      });
+    });
+
+    /* ---- sponsors ---- */
+    const sponsors = [['Maxim Marcom', './assets/83ed689f5b9dcf52a74c648dc5d00e91.jpg'], ['A.K. Capital', './assets/0bf3b99df9f44db7ed1c94ba4bb5cc97.jpg'], ['LBD Resorts and Hotels', './assets/971ea1d6a6e5571cf58592286c25de35.jpg']].map((p, i) => {
+      const id = 'sp' + i, on = hk === id, h = hov(id);
+      return Object.assign({}, h, { name: p[0], img: p[1], style: 'flex:1 1 240px;min-width:0;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:14px;padding:22px;border-radius:16px;background:#B91C1C;border:2px solid ' + (on ? '#FACC15' : '#B91C1C') + ';transition:transform .2s ease;transform:' + (on ? 'translateY(-6px) rotate(-1.5deg)' : 'none') });
+    });
+
+    /* ---- organisers ---- */
+    const O = [
+      ['Divy Khetan', './assets/ae6f5005e82814959e2e4ed5a7282147.jpg', 'divy_khetan.sias24@krea.ac.in', '+91 8928364499'],
+      ['Avani Vaidya', './assets/fcdbb975a8c7575fdcf95c1035afac17.jpg', 'avani_vaidya.sias24@krea.ac.in', '+91 9993077661']
+    ];
+    const organisers = O.map((o, i) => {
+      const id = 'o' + i, h = hov(id), on = hk === id;
+      return Object.assign({}, h, {
+        name: o[0], img: o[1], email: o[2], mail: 'mailto:' + o[2], phone: o[3],
+        cardStyle: 'flex:1 1 420px;min-width:0;box-sizing:border-box;display:flex;flex-wrap:wrap;border:2px solid #1F2937;border-radius:18px;overflow:hidden;background:#ffffff;transition:transform .15s ease-out, box-shadow .2s ease;transform:' + tilt(id, 8) + ';box-shadow:' + (on ? '8px 8px 0 #B91C1C' : 'none'),
+        imgStyle: 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .2s ease-out, filter .3s ease;filter:' + (on ? 'none' : 'grayscale(.9)') + ';transform:scale(' + (on ? 1.1 : 1) + ')'
+      });
+    });
+
+    /* ---- crew placeholders ---- */
+    const person = (id, role) => {
+      const h = hov(id), on = hk === id;
+      return Object.assign({}, h, {
+        role,
+        style: 'flex:1 1 200px;min-width:0;box-sizing:border-box;background:#ffffff;border:2px solid ' + (on ? '#B91C1C' : '#1F2937') + ';border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:6px;transition:transform .15s ease-out, box-shadow .2s ease;transform:' + tilt(id, 14) + ';box-shadow:' + (on ? '6px 6px 0 #FACC15' : 'none'),
+        avatarStyle: 'width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:6px;background:' + (on ? 'radial-gradient(60px circle at ' + Math.round(hxp * 100) + '% ' + Math.round(hyp * 100) + '%, #FACC15, #FEF3C7 80%)' : '#FEF3C7')
+      });
+    };
+    const teamNames = ['Outreach', 'Events', 'Marketing', 'Finance', 'Logistics'];
+    const heads = teamNames.map((n, i) => person('h' + i, n + ' Head'));
+    const teams = teamNames.map((n, i) => ({
+      title: n + ' team',
+      people: [person('p' + i, n + ' POC')].concat([0, 1, 2].map((k) => person('m' + i + '_' + k, 'Team member')))
+    }));
+
+    /* ---- gallery ---- */
+    const shots = [0, 1, 2, 3, 4, 5].map((i) => {
+      const id = 'gs' + i, on = hk === id, h = hov(id);
+      return Object.assign({}, h, { style: 'flex:1 1 240px;min-width:0;height:180px;box-sizing:border-box;background:' + (on ? '#FACC15' : '#FEF3C7') + ';border:2px dashed #B91C1C;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#7f1d1d;font-weight:600;font-size:14px;transition:transform .2s ease, background .2s ease;transform:' + (on ? 'scale(1.04) rotate(-1deg)' : 'none') });
+    });
+
+    return { ringStyle, dotStyle, heroStyle, rootMove, rootLeave, wordMove, wordLeave, letters, powers, powerTitle: P[pk][0], powerBody: P[pk][1], newEvents, eventFields, days, rows, games, speakers, sponsors, organisers, heads, teams, shots, faqs: [{}, {}, {}] };
+  }
+}
+</script>
+</body>
+</html>
