@@ -1,0 +1,7 @@
+<svg width="400" height="220" viewBox="0 0 400 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="220" rx="22" fill="#FEF3C7"/>
+  <rect x="18" y="18" width="364" height="184" rx="18" stroke="#B91C1C" stroke-width="3" stroke-dasharray="10 10"/>
+  <circle cx="120" cy="110" r="34" fill="#FACC15"/>
+  <path d="M150 78H290C302.15 78 312 87.8497 312 100V142C312 154.151 302.15 164 290 164H150C137.85 164 128 154.151 128 142V100C128 87.8497 137.85 78 150 78Z" fill="#B91C1C"/>
+  <text x="200" y="168" text-anchor="middle" fill="#FEF3C7" font-family="Arial, sans-serif" font-size="24" font-weight="700">Add Logo</text>
+</svg>

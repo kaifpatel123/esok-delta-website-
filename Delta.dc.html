@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <title>Delta, Krea's economics fest</title>
-<script src="./assets/vendor/react.js"></script>
-<script src="./assets/vendor/react-dom.js"></script>
+<link rel="icon" type="image/jpeg" href="./assets/images/esoc-logo.jpeg">
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
 <script src="./assets/js/support.js"></script>
 </head>
 <body>
@@ -206,7 +207,7 @@ a{color:#B91C1C}a:hover{color:#7f1d1d}
 <sc-for list="{{ speakers }}" as="s" hint-placeholder-count="5">
 <div onMouseEnter="{{ s.onEnter }}" onMouseMove="{{ s.onMove }}" onMouseLeave="{{ s.onLeave }}" style="{{ s.cardStyle }}">
 <div style="position:relative;overflow:hidden;aspect-ratio:4/5;background:#B91C1C">
-<img src="{{ s.img }}" alt="{{ s.name }}" style="{{ s.imgStyle }}">
+<div role="img" aria-label="{{ s.name }}" style="{{ s.imageStyle }}"></div>
 <div style="{{ s.overlayStyle }}">{{ s.bio }}</div>
 </div>
 <div style="padding:16px 18px;display:flex;flex-direction:column;gap:2px;background:#1F2937">
@@ -223,7 +224,7 @@ a{color:#B91C1C}a:hover{color:#7f1d1d}
 <div style="display:flex;flex-wrap:wrap;gap:20px">
 <sc-for list="{{ sponsors }}" as="p" hint-placeholder-count="3">
 <div onMouseEnter="{{ p.onEnter }}" onMouseLeave="{{ p.onLeave }}" style="{{ p.style }}">
-<img src="{{ p.img }}" alt="{{ p.name }} logo" style="width:100%;max-width:200px;height:auto;border-radius:12px">
+<div role="img" aria-label="{{ p.name }} logo" style="{{ p.imageStyle }}"></div>
 <span class="disp" style="font-weight:800;font-size:20px;color:#FACC15;text-align:center">{{ p.name }}</span>
 </div>
 </sc-for>
@@ -246,7 +247,7 @@ a{color:#B91C1C}a:hover{color:#7f1d1d}
 <sc-for list="{{ organisers }}" as="o" hint-placeholder-count="2">
 <div onMouseEnter="{{ o.onEnter }}" onMouseMove="{{ o.onMove }}" onMouseLeave="{{ o.onLeave }}" style="{{ o.cardStyle }}">
 <div style="flex:0 0 190px;position:relative;overflow:hidden;background:#B91C1C;min-height:230px">
-<img src="{{ o.img }}" alt="{{ o.name }}" style="{{ o.imgStyle }}">
+<div role="img" aria-label="{{ o.name }}" style="{{ o.imageStyle }}"></div>
 </div>
 <div style="flex:1 1 200px;min-width:0;padding:20px;display:flex;flex-direction:column;gap:6px;justify-content:center">
 <span class="disp" style="font-size:24px;font-weight:800;color:#1F2937">{{ o.name }}</span>
@@ -266,7 +267,7 @@ a{color:#B91C1C}a:hover{color:#7f1d1d}
 <div style="display:flex;flex-wrap:wrap;gap:16px">
 <sc-for list="{{ heads }}" as="c" hint-placeholder-count="5">
 <div onMouseEnter="{{ c.onEnter }}" onMouseMove="{{ c.onMove }}" onMouseLeave="{{ c.onLeave }}" style="{{ c.style }}">
-<div style="{{ c.avatarStyle }}"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#B91C1C" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg></div>
+<div style="{{ c.avatarStyle }}"><img src="./assets/images/placeholder-person.svg" alt="{{ c.role }} placeholder" style="width:40px;height:40px;border-radius:50%;object-fit:cover"></div>
 <span style="font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#B91C1C">{{ c.role }}</span>
 <span style="font-weight:700;font-size:15px"><span class="dph">[Add Name]</span></span>
 <span style="font-size:13px"><span class="dph">[Add Photo]</span></span>
@@ -280,7 +281,7 @@ a{color:#B91C1C}a:hover{color:#7f1d1d}
 <div style="display:flex;flex-wrap:wrap;gap:16px">
 <sc-for list="{{ t.people }}" as="c" hint-placeholder-count="4">
 <div onMouseEnter="{{ c.onEnter }}" onMouseMove="{{ c.onMove }}" onMouseLeave="{{ c.onLeave }}" style="{{ c.style }}">
-<div style="{{ c.avatarStyle }}"><svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#B91C1C" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="4"></circle><path d="M4 21c0-4.4 3.6-7 8-7s8 2.6 8 7"></path></svg></div>
+<div style="{{ c.avatarStyle }}"><img src="./assets/images/placeholder-person.svg" alt="{{ c.role }} placeholder" style="width:40px;height:40px;border-radius:50%;object-fit:cover"></div>
 <span style="font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#B91C1C">{{ c.role }}</span>
 <span style="font-weight:700;font-size:15px"><span class="dph">[Add Name]</span></span>
 <span style="font-size:13px"><span class="dph">[Add Photo]</span></span>
@@ -304,7 +305,7 @@ a{color:#B91C1C}a:hover{color:#7f1d1d}
 <div style="display:flex;flex-wrap:wrap;gap:8px"><span style="background:#B91C1C;color:#ffffff;font-weight:700;font-size:14px;padding:8px 16px;border-radius:999px">Delta 1.0</span><span style="background:#FEF3C7;color:#7f1d1d;font-weight:700;font-size:14px;padding:8px 16px;border-radius:999px">Delta 26–27</span></div>
 <div style="display:flex;flex-wrap:wrap;gap:16px">
 <sc-for list="{{ shots }}" as="g" hint-placeholder-count="6">
-<div onMouseEnter="{{ g.onEnter }}" onMouseLeave="{{ g.onLeave }}" style="{{ g.style }}">[Add Gallery Image]</div>
+<div onMouseEnter="{{ g.onEnter }}" onMouseLeave="{{ g.onLeave }}" style="{{ g.style }}"><img src="./assets/images/placeholder-logo.svg" alt="Gallery placeholder" style="width:100%;height:100%;object-fit:cover;border-radius:12px;display:block"></div>
 </sc-for>
 </div>
 </div>
@@ -449,39 +450,46 @@ class Component extends DCLogic {
 
     /* ---- speakers ---- */
     const S = [
-      ['Prof Shyam Kumar Sudhakar', 'Panel', './assets/fbe1777483844f19f670429bc0fd0e6c.jpg', 'Panellist, The Future of Work.'],
-      ['Prof Sharon Buteau', 'Panel', './assets/944f213ff198f453dec67a87f3905012.jpg', 'Panellist, The Future of Work.'],
-      ['Sunil Subramaniam', 'Speaker', './assets/cbbd69aa4fe764ad934c6eaddbdbb4dc.jpg', 'Financial services leader with over 40 years of experience. Retired as MD of Sundaram Mutual in June 2024. Runs the YouTube channel Sense and Simplicity on financial literacy.'],
-      ['Ruhie Kumar', 'Speaker', './assets/7b9bf42b63bb82c5c22b670a38b8325b.jpg', 'Climate justice campaigner and communications strategist. Co-convener of the Heatwave Action Coalition and creator of ClimateBabbler.'],
-      ['Yash Agarwal', 'Speaker', './assets/d855759b81a480bd0bc73b42048f0681.jpg', 'Public policy professional in technology and digital regulation. Works with ICANN in South Asia and founded Public Policy India.']
+      ['Prof Shyam Kumar Sudhakar', 'Panel', './assets/images/prof-shyam-kumar-sudhakar.jpg', 'Panellist, The Future of Work.'],
+      ['Prof Sharon Buteau', 'Panel', './assets/images/Prof%20Sharon%20Buteau.jpg', 'Panellist, The Future of Work.'],
+      ['Sunil Subramaniam', 'Speaker', './assets/images/sunil-subramaniam.jpg', 'Financial services leader with over 40 years of experience. Retired as MD of Sundaram Mutual in June 2024. Runs the YouTube channel Sense and Simplicity on financial literacy.'],
+      ['Ruhie Kumar', 'Speaker', './assets/images/Ruhie%20Kumar.jpg', 'Climate justice campaigner and communications strategist. Co-convener of the Heatwave Action Coalition and creator of ClimateBabbler.'],
+      ['Yash Agarwal', 'Speaker', './assets/images/yash-agarwal.jpg', 'Public policy professional in technology and digital regulation. Works with ICANN in South Asia and founded Public Policy India.']
     ];
     const speakers = S.map((p, i) => {
       const id = 's' + i, h = hov(id), on = hk === id;
+      const imgUrl = p[2] || './assets/images/placeholder-person.svg';
       return Object.assign({}, h, {
         name: p[0], role: p[1], img: p[2], bio: p[3],
         cardStyle: 'flex:1 1 200px;min-width:0;box-sizing:border-box;border:2px solid #FACC15;border-radius:16px;overflow:hidden;background:#1F2937;transition:transform .15s ease-out, box-shadow .2s ease;transform:' + tilt(id, 10) + ';box-shadow:' + (on ? '8px 8px 0 #FACC15' : 'none'),
-        imgStyle: 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .2s ease-out, filter .3s ease;filter:' + (on ? 'grayscale(0) saturate(1.15)' : 'grayscale(.85)') + ';transform:scale(' + (on ? 1.1 : 1) + ') translate(' + (on ? ((0.5 - hxp) * 14).toFixed(1) : 0) + 'px,' + (on ? ((0.5 - hyp) * 14).toFixed(1) : 0) + 'px)',
+        imageStyle: 'position:absolute;inset:0;background-image:url("' + imgUrl + '");background-size:cover;background-position:center;transition:transform .2s ease-out, filter .3s ease;filter:' + (on ? 'grayscale(0) saturate(1.15)' : 'grayscale(.85)') + ';transform:scale(' + (on ? 1.1 : 1) + ') translate(' + (on ? ((0.5 - hxp) * 14).toFixed(1) : 0) + 'px,' + (on ? ((0.5 - hyp) * 14).toFixed(1) : 0) + 'px)',
         overlayStyle: 'position:absolute;left:0;right:0;bottom:0;padding:14px;background:rgba(31,41,55,.92);color:#ffffff;font-size:13px;line-height:1.45;transition:transform .3s ease;transform:translateY(' + (on ? '0' : '101%') + ')'
       });
     });
 
     /* ---- sponsors ---- */
-    const sponsors = [['Maxim Marcom', './assets/83ed689f5b9dcf52a74c648dc5d00e91.jpg'], ['A.K. Capital', './assets/0bf3b99df9f44db7ed1c94ba4bb5cc97.jpg'], ['LBD Resorts and Hotels', './assets/971ea1d6a6e5571cf58592286c25de35.jpg']].map((p, i) => {
+    const sponsors = [['Maxim Marcom', './assets/images/Maxim%20Marcom.jpg'], ['A.K. Capital', './assets/images/A.K.%20Capital.jpg'], ['LBD Resorts and Hotels', './assets/images/LBD%20Resorts%20and%20Hotels.jpg']].map((p, i) => {
       const id = 'sp' + i, on = hk === id, h = hov(id);
-      return Object.assign({}, h, { name: p[0], img: p[1], style: 'flex:1 1 240px;min-width:0;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:14px;padding:22px;border-radius:16px;background:#B91C1C;border:2px solid ' + (on ? '#FACC15' : '#B91C1C') + ';transition:transform .2s ease;transform:' + (on ? 'translateY(-6px) rotate(-1.5deg)' : 'none') });
+      const imgUrl = p[1] || './assets/images/placeholder-logo.svg';
+      return Object.assign({}, h, {
+        name: p[0], img: p[1],
+        style: 'flex:1 1 240px;min-width:0;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;gap:14px;padding:22px;border-radius:16px;background:#B91C1C;border:2px solid ' + (on ? '#FACC15' : '#B91C1C') + ';transition:transform .2s ease;transform:' + (on ? 'translateY(-6px) rotate(-1.5deg)' : 'none'),
+        imageStyle: 'width:100%;max-width:200px;height:140px;border-radius:12px;background-image:url("' + imgUrl + '");background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#FEF3C7'
+      });
     });
 
     /* ---- organisers ---- */
     const O = [
-      ['Divy Khetan', './assets/ae6f5005e82814959e2e4ed5a7282147.jpg', 'divy_khetan.sias24@krea.ac.in', '+91 8928364499'],
-      ['Avani Vaidya', './assets/fcdbb975a8c7575fdcf95c1035afac17.jpg', 'avani_vaidya.sias24@krea.ac.in', '+91 9993077661']
+      ['Divy Khetan', './assets/images/divy-kethan.jpg', 'divy_khetan.sias24@krea.ac.in', '+91 8928364499'],
+      ['Avani Vaidya', './assets/images/Avani-Vaidya.jpg', 'avani_vaidya.sias24@krea.ac.in', '+91 9993077661']
     ];
     const organisers = O.map((o, i) => {
       const id = 'o' + i, h = hov(id), on = hk === id;
+      const imgUrl = o[1] || './assets/images/placeholder-person.svg';
       return Object.assign({}, h, {
         name: o[0], img: o[1], email: o[2], mail: 'mailto:' + o[2], phone: o[3],
         cardStyle: 'flex:1 1 420px;min-width:0;box-sizing:border-box;display:flex;flex-wrap:wrap;border:2px solid #1F2937;border-radius:18px;overflow:hidden;background:#ffffff;transition:transform .15s ease-out, box-shadow .2s ease;transform:' + tilt(id, 8) + ';box-shadow:' + (on ? '8px 8px 0 #B91C1C' : 'none'),
-        imgStyle: 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .2s ease-out, filter .3s ease;filter:' + (on ? 'none' : 'grayscale(.9)') + ';transform:scale(' + (on ? 1.1 : 1) + ')'
+        imageStyle: 'position:absolute;inset:0;background-image:url("' + imgUrl + '");background-size:cover;background-position:center;transition:transform .2s ease-out, filter .3s ease;filter:' + (on ? 'none' : 'grayscale(.9)') + ';transform:scale(' + (on ? 1.1 : 1) + ')'
       });
     });
 
