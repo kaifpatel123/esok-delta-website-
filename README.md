@@ -1,24 +1,22 @@
-# Economics Club Home (blue and white) — design reference
+# Krea Economics Club Website
 
+Static two-page website for the Krea University Economics Club and Delta.
 
+## Pages
 
-## Project structure
+- `index.html` — Economics Club home page and root deployment route
+- `delta.html` — Delta festival page
 
-- `Main.dc.html` — main club landing page mockup
-- `Delta.dc.html` — Delta festival landing page mockup
-- `index.html` — static landing redirect for the root route on Vercel
-- `assets/images/` — downloaded images and portraits used across the site
-- `assets/vendor/` — React runtime files for the design component system
-- `assets/js/support.js` — shared rendering/runtime logic for the mockup pages
+Shared styles and browser interactions live in `assets/css/site.css` and `assets/js/site.js`. Images are stored in `assets/images/`.
 
-## Local viewing
+## Local preview
 
-Serve the folder and open the site via a local HTTP server, for example:
+From the project directory, run:
 
-`py -m http.server 8000`
+```powershell
+py -m http.server 8000
+```
 
-Then browse to:
+Open `http://localhost:8000/` for the club home page or `http://localhost:8000/delta.html` for Delta.
 
-`http://localhost:8000/`
-
-This setup is compatible with static deployment on Vercel and GitHub Pages-style hosting.
+The site is static and deployable to Vercel or GitHub Pages without a build step.
