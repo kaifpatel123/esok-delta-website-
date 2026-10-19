@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Delta, Krea's economics fest</title>
 <link rel="icon" type="image/jpeg" href="./assets/images/esoc-logo.jpeg">
 <script src="./vendor/react.js"></script>
@@ -30,16 +31,51 @@ a{color:#B91C1C}a:hover{color:#7f1d1d}
 @keyframes rise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
 .rise{animation:rise .7s ease both}.d2{animation-delay:.15s}
 @media (prefers-reduced-motion: reduce){.rise{animation:none}}
+.pointer-decoration{pointer-events:none}
+.motion-ready .scroll-reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.motion-ready .scroll-reveal.is-visible{opacity:1;transform:translateY(0)}
+@media (max-width:760px){
+  body{overflow-x:hidden}
+  .dnav{width:100%;flex-wrap:nowrap!important;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;white-space:nowrap}
+  .dnav::-webkit-scrollbar{display:none}
+  .dnav.mobile-menu-closed{display:none!important}
+  .mobile-menu-toggle{display:inline-flex!important}
+  .dnav:not(.mobile-menu-closed){flex-direction:column;align-items:stretch;gap:0!important;overflow:visible;white-space:normal;border-top:1px solid rgba(255,255,255,.2);padding-top:6px}
+  .dnav:not(.mobile-menu-closed) a{width:100%;text-align:left}
+  .dnav a{flex:0 0 auto;font-size:12px;padding:10px 11px}
+  header>div{padding:10px 16px!important;gap:8px!important}
+  .delta-parent-inner{padding:8px 16px!important;font-size:12px!important}
+  .delta-parent-inner>span{display:none}
+  #top>.delta-hero-inner{padding:48px 20px 60px!important;gap:18px!important}
+  .delta-wordmark{max-width:100%;overflow:hidden;gap:0!important;padding:4px 0!important}
+  .delta-wordmark>span{font-size:62px!important;-webkit-text-stroke-width:2px!important}
+  #top .disp{font-size:28px!important;line-height:1.08!important}
+  #top p:not(.disp){font-size:16px!important;line-height:1.5!important}
+  #top .dbtn{padding:12px 15px;font-size:14px}
+  section:not(#top)>div{padding:48px 20px!important;gap:28px!important}
+  section h2{font-size:32px!important;line-height:1.12!important}
+  section h3{overflow-wrap:anywhere}
+  #archive table{font-size:13px!important}
+  #archive th,#archive td{padding:10px 12px!important}
+  .pointer-decoration{display:none!important}
+}
+@media (max-width:380px){
+  #top>.delta-hero-inner{padding-right:16px!important;padding-left:16px!important}
+  .delta-wordmark>span{font-size:54px!important}
+  #top .dbtn{padding:11px 12px;font-size:13px}
+}
+@media (hover:none){.dnav a:hover,.dbtn:hover,.tb:hover,.pill:hover{transform:none;box-shadow:none}}
+@media (prefers-reduced-motion:reduce){.motion-ready .scroll-reveal{opacity:1;transform:none;transition:none}}
 </style>
 </helmet>
 <div onMouseMove="{{ rootMove }}" onMouseLeave="{{ rootLeave }}" style="position:relative;overflow:hidden;width:100%;box-sizing:border-box;background:#ffffff">
 
-<div aria-hidden="true" style="{{ ringStyle }}"></div>
-<div aria-hidden="true" style="{{ dotStyle }}"></div>
+<div class="pointer-decoration" aria-hidden="true" style="{{ ringStyle }}"></div>
+<div class="pointer-decoration" aria-hidden="true" style="{{ dotStyle }}"></div>
 
 <!-- Parent bar -->
 <div style="background:#1F2937;color:#ffffff;position:relative;z-index:2">
-<div style="max-width:1200px;margin:0 auto;padding:10px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;font-size:14px">
+<div class="delta-parent-inner" style="max-width:1200px;margin:0 auto;padding:10px 24px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px;font-size:14px">
 <a href="Main.dc.html" style="color:#FACC15;font-weight:600;text-decoration:none">← Back to Krea University Economics Club</a>
 <span style="color:#d1d5db">Delta is the Economics Club's flagship fest</span>
 </div>
@@ -47,9 +83,10 @@ a{color:#B91C1C}a:hover{color:#7f1d1d}
 
 <!-- Delta header -->
 <header style="background:#B91C1C;position:relative;z-index:2">
-<div style="max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px">
+<div class="delta-header-inner" style="max-width:1200px;margin:0 auto;padding:14px 24px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px">
 <a href="#top" class="varsity" style="text-decoration:none;color:#FACC15;font-size:28px;letter-spacing:.06em;display:flex;align-items:center;gap:10px"><span style="display:inline-block;background:#FACC15;color:#B91C1C;width:38px;height:38px;border-radius:8px;text-align:center;line-height:38px">Δ</span>DELTA</a>
-<nav class="dnav" aria-label="Delta" style="display:flex;flex-wrap:wrap;gap:2px;align-items:center">
+<button class="mobile-menu-toggle" type="button" onClick="{{ toggleMenu }}" aria-expanded="{{ menuExpanded }}" aria-controls="delta-nav" style="display:none;align-items:center;gap:8px;padding:9px 12px;border:1px solid #FACC15;border-radius:6px;background:transparent;color:#ffffff;font:600 13px 'DM Sans',sans-serif">Menu <span aria-hidden="true">+</span></button>
+<nav id="delta-nav" class="dnav {{ menuClass }}" onClick="{{ closeMenu }}" aria-label="Delta" style="display:flex;flex-wrap:wrap;gap:2px;align-items:center">
 <a href="#about">About</a>
 <a href="#theme">Theme</a>
 <a href="#edition">26–27</a>
@@ -65,9 +102,9 @@ a{color:#B91C1C}a:hover{color:#7f1d1d}
 <!-- Hero -->
 <section id="top" style="{{ heroStyle }}">
 <div aria-hidden="true" style="position:absolute;right:-140px;top:-100px;width:520px;height:520px;background:#EF4444;transform:rotate(45deg);opacity:.5"></div>
-<div style="max-width:1200px;margin:0 auto;padding:72px 24px 88px;position:relative;display:flex;flex-direction:column;gap:22px">
+<div class="delta-hero-inner" style="max-width:1200px;margin:0 auto;padding:72px 24px 88px;position:relative;display:flex;flex-direction:column;gap:22px">
 <span style="align-self:flex-start;background:#FACC15;color:#1F2937;font-weight:700;font-size:13px;letter-spacing:.1em;text-transform:uppercase;padding:6px 14px;border-radius:999px">Delta 26–27 · Second edition</span>
-<div onMouseMove="{{ wordMove }}" onMouseLeave="{{ wordLeave }}" role="img" aria-label="DELTA" style="display:flex;gap:6px;align-self:flex-start;cursor:pointer;padding:10px 0">
+<div class="delta-wordmark" onMouseMove="{{ wordMove }}" onMouseLeave="{{ wordLeave }}" role="img" aria-label="DELTA" style="display:flex;gap:6px;align-self:flex-start;cursor:pointer;padding:10px 0">
 <sc-for list="{{ letters }}" as="l" hint-placeholder-count="5"><span aria-hidden="true" class="varsity" style="{{ l.style }}">{{ l.ch }}</span></sc-for>
 </div>
 <p class="disp" style="margin:0;font-size:32px;line-height:1.15;color:#ffffff;font-weight:800;max-width:720px">Ex Machina: The Power Behind the System</p>
@@ -80,7 +117,7 @@ a{color:#B91C1C}a:hover{color:#7f1d1d}
 <a class="dbtn" href="#theme" style="background:#FACC15;color:#1F2937">Explore the theme</a>
 <a class="dbtn" href="#archive" style="background:transparent;color:#ffffff;border:2px solid #ffffff">See Delta 1.0</a>
 </div>
-<span style="color:#FEF3C7;font-size:14px">Move over the DELTA letters. Registration for 26–27 is not open yet.</span>
+<span style="color:#FEF3C7;font-size:14px">Registration for 26–27 is not open yet.</span>
 </div>
 </section>
 
@@ -170,7 +207,7 @@ a{color:#B91C1C}a:hover{color:#7f1d1d}
 <div role="tablist" aria-label="Day" style="display:flex;gap:8px">
 <sc-for list="{{ days }}" as="d" hint-placeholder-count="2"><button type="button" role="tab" class="tb" onClick="{{ d.pick }}" style="{{ d.style }}">{{ d.label }}</button></sc-for>
 </div>
-<div style="background:#ffffff;color:#1F2937;border-radius:16px;overflow-x:auto">
+<div class="archive-table-wrap" style="background:#ffffff;color:#1F2937;border-radius:16px;overflow-x:auto">
 <table style="width:100%;min-width:520px;border-collapse:collapse;font-size:16px">
 <thead><tr style="text-align:left;background:#FACC15"><th style="padding:14px 18px">Time</th><th style="padding:14px 18px">Event</th><th style="padding:14px 18px">Venue</th></tr></thead>
 <tbody>
@@ -360,7 +397,12 @@ class Component extends DCLogic {
     const dotStyle = 'position:absolute;left:0;top:0;width:8px;height:8px;margin:-4px 0 0 -4px;border-radius:50%;background:#FACC15;mix-blend-mode:difference;pointer-events:none;z-index:50;opacity:' + (has ? 1 : 0) + ';transform:translate(' + (has ? cx : 0) + 'px,' + (has ? cy : 0) + 'px)';
     const hx = has ? cx : 700, hy = has ? cy - 110 : 240;
     const heroStyle = 'position:relative;overflow:hidden;background:radial-gradient(480px circle at ' + hx + 'px ' + hy + 'px, rgba(250,204,21,.38), rgba(250,204,21,0) 62%), #B91C1C';
+    const toggleMenu = () => set({ menuOpen: !s.menuOpen });
+    const closeMenu = () => { if (s.menuOpen) set({ menuOpen: false }); };
+    const menuExpanded = !!s.menuOpen;
+    const menuClass = menuExpanded ? '' : 'mobile-menu-closed';
     const rootMove = (e) => {
+      if (window.matchMedia('(hover: none)').matches) return;
       const now = Date.now();
       if (this._t && now - this._t < 28) return;
       this._t = now;
@@ -372,6 +414,7 @@ class Component extends DCLogic {
     /* ---- wordmark: letters rise toward the cursor ---- */
     const wf = typeof s.wf === 'number' ? s.wf : null;
     const wordMove = (e) => {
+      if (window.matchMedia('(hover: none)').matches) return;
       const r = e.currentTarget.getBoundingClientRect();
       set({ wf: (e.clientX - r.left) / r.width });
     };
@@ -385,9 +428,10 @@ class Component extends DCLogic {
 
     /* ---- hover helper ---- */
     const hov = (id) => ({
-      onEnter: () => set({ hk: id }),
+      onEnter: () => { if (!window.matchMedia('(hover: none)').matches) set({ hk: id }); },
       onLeave: () => set({ hk: null }),
       onMove: (e) => {
+        if (window.matchMedia('(hover: none)').matches) return;
         const r = e.currentTarget.getBoundingClientRect();
         set({ hk: id, hxp: (e.clientX - r.left) / r.width, hyp: (e.clientY - r.top) / r.height });
       }
@@ -515,9 +559,33 @@ class Component extends DCLogic {
       return Object.assign({}, h, { style: 'flex:1 1 240px;min-width:0;height:180px;box-sizing:border-box;background:' + (on ? '#FACC15' : '#FEF3C7') + ';border:2px dashed #B91C1C;border-radius:14px;display:flex;align-items:center;justify-content:center;color:#7f1d1d;font-weight:600;font-size:14px;transition:transform .2s ease, background .2s ease;transform:' + (on ? 'scale(1.04) rotate(-1deg)' : 'none') });
     });
 
-    return { ringStyle, dotStyle, heroStyle, rootMove, rootLeave, wordMove, wordLeave, letters, powers, powerTitle: P[pk][0], powerBody: P[pk][1], newEvents, eventFields, days, rows, games, speakers, sponsors, organisers, heads, teams, shots, faqs: [{}, {}, {}] };
+    return { ringStyle, dotStyle, heroStyle, rootMove, rootLeave, toggleMenu, closeMenu, menuExpanded, menuClass, wordMove, wordLeave, letters, powers, powerTitle: P[pk][0], powerBody: P[pk][1], newEvents, eventFields, days, rows, games, speakers, sponsors, organisers, heads, teams, shots, faqs: [{}, {}, {}] };
   }
 }
+</script>
+<script>
+(() => {
+  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const seen = new WeakSet();
+  const reveal = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      reveal.unobserve(entry.target);
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -5% 0px' });
+  const attach = () => {
+    document.querySelectorAll('.sc-host section:not(#top)>div').forEach((section) => {
+      if (seen.has(section)) return;
+      seen.add(section);
+      section.classList.add('scroll-reveal');
+      reveal.observe(section);
+    });
+    document.body.classList.add('motion-ready');
+  };
+  new MutationObserver(attach).observe(document.body, { childList: true, subtree: true });
+  attach();
+})();
 </script>
 </body>
 </html>

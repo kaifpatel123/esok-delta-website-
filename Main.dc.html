@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Krea University Economics Club</title>
 <link rel="icon" type="image/jpeg" href="./assets/images/esoc-logo.jpeg">
 <script src="./vendor/react.js"></script>
@@ -31,12 +32,49 @@ a{color:#2563EB}a:hover{color:#102A43}
 .rise{animation:rise .7s ease both}
 .d2{animation-delay:.12s}.d3{animation-delay:.24s}
 @media (prefers-reduced-motion: reduce){.rise{animation:none}}
+.pointer-decoration{pointer-events:none}
+.motion-ready .scroll-reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.motion-ready .scroll-reveal.is-visible{opacity:1;transform:translateY(0)}
+@media (max-width:760px){
+  body{overflow-x:hidden}
+  .nav{width:100%;flex-wrap:nowrap!important;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;white-space:nowrap}
+  .nav::-webkit-scrollbar{display:none}
+  .nav.mobile-menu-closed{display:none!important}
+  .mobile-menu-toggle{display:inline-flex!important}
+  .nav:not(.mobile-menu-closed){flex-direction:column;align-items:stretch;gap:0!important;overflow:visible;white-space:normal;border-top:1px solid rgba(255,255,255,.18);padding-top:6px}
+  .nav:not(.mobile-menu-closed) a{width:100%;text-align:left}
+  .nav a{flex:0 0 auto;font-size:10px;padding:10px 11px;letter-spacing:.1em}
+  header>div{padding:10px 16px!important;gap:8px!important}
+  header>div>a img{width:38px!important;height:38px!important}
+  #top>.main-hero-inner{min-height:640px;padding:108px 20px 48px!important;align-items:flex-end!important;gap:0!important}
+  .main-hero-copy{flex:1 1 100%!important}
+  .main-hero-copy h1{font-size:38px!important;line-height:1.02!important}
+  .main-hero-copy>p{font-size:16px!important;line-height:1.5!important;margin-top:18px!important}
+  .main-hero-copy .hero-actions{margin-top:24px!important;padding-top:16px!important;gap:10px!important}
+  .main-hero-copy .hero-actions .btn{padding:12px 14px;font-size:14px}
+  .main-hero-emblem{position:absolute!important;right:20px;top:16px;margin:0!important}
+  .main-hero-emblem>div{width:82px!important;height:82px!important;border-width:2px!important}
+  .main-hero-emblem img{width:82%!important;height:82%!important}
+  section:not(#top)>div{padding:48px 20px!important;gap:28px!important}
+  section h2{font-size:32px!important;line-height:1.12!important}
+  section h3{overflow-wrap:anywhere}
+  #delta-promo>div>div{padding:24px 20px!important;border-radius:14px!important}
+  .delta-photo-collage{width:min(100%,320px)!important;height:220px!important}
+  .pointer-decoration{display:none!important}
+}
+@media (max-width:380px){
+  #top>.main-hero-inner{padding-right:16px!important;padding-left:16px!important}
+  .main-hero-copy h1{font-size:34px!important}
+  .main-hero-copy .hero-actions .btn{padding:11px 12px;font-size:13px}
+}
+@media (hover:none){.nav a:hover,.social:hover,.btn:hover,.chip:hover,.tabbtn:hover{transform:none}}
+@media (prefers-reduced-motion:reduce){.motion-ready .scroll-reveal{opacity:1;transform:none;transition:none}}
 </style>
 </helmet>
 <div onMouseMove="{{ rootMove }}" onMouseLeave="{{ rootLeave }}" style="position:relative;overflow:hidden;width:100%;box-sizing:border-box;background:#ffffff">
 
-<div aria-hidden="true" style="{{ ringStyle }}"></div>
-<div aria-hidden="true" style="{{ dotStyle }}"></div>
+<div class="pointer-decoration" aria-hidden="true" style="{{ ringStyle }}"></div>
+<div class="pointer-decoration" aria-hidden="true" style="{{ dotStyle }}"></div>
 
 <!-- Header -->
 <header style="background:#102A43;border-bottom:4px solid #ffffff;position:relative;z-index:3">
@@ -45,7 +83,8 @@ a{color:#2563EB}a:hover{color:#102A43}
 <img src="./assets/images/esoc-logo.jpeg" alt="Krea University Economics Club logo" style="width:44px;height:44px;border-radius:10px;object-fit:cover;border:1px solid #DBEAFE;box-shadow:0 10px 22px rgba(16,42,67,.12)">
 <div style="display:flex;flex-direction:column;line-height:1.2"><span style="font-family:'Source Serif 4',serif;font-weight:700;color:#ffffff;font-size:17px">Krea University</span><span style="color:#BFDBFE;font-size:13px">Economics Club</span></div>
 </a>
-<nav class="nav" aria-label="Main" style="display:flex;flex-wrap:wrap;gap:2px;align-items:center">
+<button class="mobile-menu-toggle" type="button" onClick="{{ toggleMenu }}" aria-expanded="{{ menuExpanded }}" aria-controls="main-nav" style="display:none;align-items:center;gap:8px;padding:9px 12px;border:1px solid #FACC15;border-radius:6px;background:transparent;color:#ffffff;font:600 13px 'DM Sans',sans-serif">Menu <span aria-hidden="true">+</span></button>
+<nav id="main-nav" class="nav {{ menuClass }}" onClick="{{ closeMenu }}" aria-label="Main" style="display:flex;flex-wrap:wrap;gap:2px;align-items:center">
 <a href="#about">About Us</a>
 <a href="#initiatives">Initiatives</a>
 <a href="#team">Our Team</a>
@@ -62,12 +101,12 @@ a{color:#2563EB}a:hover{color:#102A43}
 <div aria-hidden="true" style="position:absolute;inset:0;background:url('./assets/images/Krea%20Pic.webp') center center/cover no-repeat;filter:grayscale(100%) brightness(.5) contrast(1.05)"></div>
 <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(90deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.15) 100%)"></div>
 
-<div style="max-width:1200px;margin:0 auto;padding:96px 24px 96px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:48px;position:relative;z-index:2;min-height:680px;box-sizing:border-box">
+<div class="main-hero-inner" style="max-width:1200px;margin:0 auto;padding:96px 24px 96px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:48px;position:relative;z-index:2;min-height:680px;box-sizing:border-box">
 
-<div class="rise" style="flex:1 1 520px;min-width:0">
+<div class="main-hero-copy rise" style="flex:1 1 520px;min-width:0">
 <h1 style="margin:0;font-family:'Source Serif 4',serif;font-weight:700;font-size:clamp(2.8rem,6.4vw,6rem);line-height:1.08;color:#ffffff;text-transform:uppercase;text-shadow:0 10px 30px rgba(0,0,0,.35)">Krea<br>University<br>Economics Club</h1>
 <p style="margin:24px 0 0;font-size:19px;line-height:1.6;max-width:560px;color:#E2E8F0">Economics, questioned and not only studied. A student-led initiative promoting critical engagement with economics through discussion, collaboration and diverse schools of thought.</p>
-<div style="margin-top:36px;padding-top:20px;border-top:2px solid rgba(255,255,255,.8);width:min(100%,560px);display:flex;flex-wrap:wrap;align-items:center;gap:14px">
+<div class="hero-actions" style="margin-top:36px;padding-top:20px;border-top:2px solid rgba(255,255,255,.8);width:min(100%,560px);display:flex;flex-wrap:wrap;align-items:center;gap:14px">
 <a class="btn" href="#about" style="background:#ffffff;color:#102A43">Explore Our Club</a>
 <a class="btn" href="Delta.dc.html" style="background:transparent;color:#ffffff;border:2px solid #ffffff">Discover Delta</a>
 <span style="display:inline-flex;align-items:center;gap:2px;margin-left:6px">
@@ -78,7 +117,7 @@ a{color:#2563EB}a:hover{color:#102A43}
 </div>
 
 <!-- Club emblem, replaces the old demand/supply graphic -->
-<div class="rise d2" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;margin:0 auto">
+<div class="main-hero-emblem rise d2" style="flex:0 0 auto;display:flex;align-items:center;justify-content:center;margin:0 auto">
 <div style="width:clamp(220px,26vw,300px);height:clamp(220px,26vw,300px);border-radius:50%;border:3px solid rgba(255,255,255,.9);display:flex;align-items:center;justify-content:center;box-shadow:0 18px 40px rgba(0,0,0,.35);background:rgba(16,42,67,.35)">
 <img src="./assets/images/esoc-logo.jpeg" alt="Krea University Economics Club logo" style="width:82%;height:82%;border-radius:50%;object-fit:cover;background:#ffffff">
 </div>
@@ -204,7 +243,7 @@ a{color:#2563EB}a:hover{color:#102A43}
 </section>
 
 <!-- Delta spotlight -->
-<section style="background:#F0F7FF">
+<section id="delta-promo" style="background:#F0F7FF">
 <div style="max-width:1200px;margin:0 auto;padding:80px 24px">
 <div style="background:#102A43;border-radius:24px;padding:48px;display:flex;flex-wrap:wrap;align-items:center;gap:36px">
 <div style="flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:16px">
@@ -213,9 +252,13 @@ a{color:#2563EB}a:hover{color:#102A43}
 <p style="margin:0;line-height:1.6;color:#DBEAFE">The second edition of Krea's flagship economics fest asks one question: when an economic system changes, who or what is actually shaping that change? The first edition ran on 21 and 22 March 2026 under the theme "A World in Crisis".</p>
 <div><a class="btn" href="Delta.dc.html" style="background:#FACC15;color:#1F2937">Enter the Delta site</a></div>
 </div>
-<div style="flex:0 1 240px;display:flex;justify-content:center">
-<a href="Delta.dc.html" aria-label="Go to Delta" style="text-decoration:none;display:block;width:200px;height:200px;border-radius:24px;background:#B91C1C;transform:rotate(-4deg);box-shadow:10px 10px 0 #FACC15;transition:transform .25s ease, box-shadow .25s ease;{{ deltaTile }}">
-<span style="display:flex;width:100%;height:100%;align-items:center;justify-content:center;font-family:'Source Serif 4',serif;font-size:120px;font-weight:700;color:#FACC15;line-height:1">Δ</span>
+<div style="flex:0 1 280px;display:flex;justify-content:center">
+<a href="Delta.dc.html" aria-label="Explore Delta and its past speakers" style="text-decoration:none;display:block;transition:transform .25s ease">
+<div class="delta-photo-collage" style="width:240px;height:240px;display:grid;grid-template-columns:1.12fr .88fr;grid-template-rows:1fr 1fr;gap:8px;transform:rotate(-2deg)">
+<img src="./assets/images/prof-shyam-kumar-sudhakar.jpg" alt="Delta speaker Professor Shyam Kumar Sudhakar" loading="lazy" style="width:100%;height:100%;min-width:0;object-fit:cover;grid-row:1 / span 2;border-radius:4px 16px 4px 16px;border:2px solid #FACC15">
+<img src="./assets/images/Prof%20Sharon%20Buteau.jpg" alt="Delta speaker Professor Sharon Buteau" loading="lazy" style="width:100%;height:100%;min-width:0;object-fit:cover;border-radius:16px 4px 16px 4px;border:2px solid #FACC15">
+<img src="./assets/images/Ruhie%20Kumar.jpg" alt="Delta speaker Ruhie Kumar" loading="lazy" style="width:100%;height:100%;min-width:0;object-fit:cover;border-radius:4px 16px 4px 16px;border:2px solid #FACC15">
+</div>
 </a>
 </div>
 </div>
@@ -274,6 +317,7 @@ class Component extends DCLogic {
 
     /* ---- root cursor tracking (throttled) ---- */
     const rootMove = (e) => {
+      if (window.matchMedia('(hover: none)').matches) return;
       const now = Date.now();
       if (this._t && now - this._t < 28) return;
       this._t = now;
@@ -281,6 +325,10 @@ class Component extends DCLogic {
       set({ cx: e.clientX - r.left, cy: e.clientY - r.top });
     };
     const rootLeave = () => set({ cx: null, cy: null });
+    const toggleMenu = () => set({ menuOpen: !s.menuOpen });
+    const closeMenu = () => { if (s.menuOpen) set({ menuOpen: false }); };
+    const menuExpanded = !!s.menuOpen;
+    const menuClass = menuExpanded ? '' : 'mobile-menu-closed';
 
     /* ---- about tabs ---- */
     const pillarsData = {
@@ -310,6 +358,7 @@ class Component extends DCLogic {
       onEnter: () => set({ hk: id }),
       onLeave: () => set({ hk: null }),
       onMove: (e) => {
+        if (window.matchMedia('(hover: none)').matches) return;
         const r = e.currentTarget.getBoundingClientRect();
         set({ hk: id, hxp: (e.clientX - r.left) / r.width, hyp: (e.clientY - r.top) / r.height });
       }
@@ -433,9 +482,33 @@ class Component extends DCLogic {
     });
 
     const deltaTile = '';
-    return { ringStyle, dotStyle, heroStyle, rootMove, rootLeave, pillars, pillarTitle: pillarsData[pk].title, pillarPoints: pillarsData[pk].points, activities, team, founders, facts, pubs, deltaTile };
+    return { ringStyle, dotStyle, heroStyle, rootMove, rootLeave, toggleMenu, closeMenu, menuExpanded, menuClass, pillars, pillarTitle: pillarsData[pk].title, pillarPoints: pillarsData[pk].points, activities, team, founders, facts, pubs, deltaTile };
   }
 }
+</script>
+<script>
+(() => {
+  if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const seen = new WeakSet();
+  const reveal = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      reveal.unobserve(entry.target);
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -5% 0px' });
+  const attach = () => {
+    document.querySelectorAll('.sc-host section:not(#top)>div').forEach((section) => {
+      if (seen.has(section)) return;
+      seen.add(section);
+      section.classList.add('scroll-reveal');
+      reveal.observe(section);
+    });
+    document.body.classList.add('motion-ready');
+  };
+  new MutationObserver(attach).observe(document.body, { childList: true, subtree: true });
+  attach();
+})();
 </script>
 </body>
 </html>
