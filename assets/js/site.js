@@ -11,7 +11,7 @@ var council=[
  ['Design Head','Leads posters, social graphics and event collateral, and maintains the visual identity.'],
  ['Publicity Head','Runs outreach and promotion, builds cross-promotion links and tracks engagement.']
 ];
-d.querySelectorAll('.team .tm').forEach(function(card,i){var member=council[i];if(!member)return;card.querySelector('small').textContent=member[0];card.querySelector('p').textContent=member[1]});
+d.querySelectorAll('.team .tm[data-council-index]').forEach(function(card){var member=council[Number(card.dataset.councilIndex)];if(!member)return;card.querySelector('small').textContent=member[0];card.querySelector('p').textContent=member[1]});
 // split headings into line-reveal spans
 d.querySelectorAll('[data-lines]').forEach(function(h){h.innerHTML=h.innerHTML.split('<br>').map(function(t){return '<span class="ln"><span>'+t+'</span></span>'}).join('')});
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.18});
@@ -23,6 +23,10 @@ try{if(sessionStorage.getItem('lift'))d.querySelector('.curtain').classList.add(
 // scroll-linked: hero expand, horizontal track, parallax
 var hero=d.querySelector('.hero'),hs=d.querySelector('.hs'),tr=d.querySelector('.hs .track'),bar=d.querySelector('.bar i'),par=[].slice.call(d.querySelectorAll('[data-s]'));
 function prog(el){var r=el.getBoundingClientRect();return Math.min(1,Math.max(0,-r.top/(r.height-innerHeight)))}
+function sizeHorizontalSection(){if(!hs||!tr)return;if(rm||innerWidth<=820){hs.style.height='auto';return}var travel=Math.max(1,tr.scrollWidth-innerWidth+56);hs.style.height=(innerHeight+travel)+'px'}
+sizeHorizontalSection();
+addEventListener('resize',sizeHorizontalSection);
+if(d.fonts&&d.fonts.ready)d.fonts.ready.then(sizeHorizontalSection);
 function tick(){
  if(hero){var p=prog(hero);hero.style.setProperty('--c',(18*(1-Math.min(1,p*2.2))).toFixed(2)+'%');var h1=hero.querySelector('h1');h1.style.transform='scale('+(1+p*.18)+')';h1.style.opacity=1-Math.max(0,p-.7)*3}
  if(hs&&tr&&innerWidth>820){var q=prog(hs);tr.style.transform='translateX('+(-q*(tr.scrollWidth-innerWidth+56))+'px)';if(bar)bar.style.width=q*100+'%'}
