@@ -12,20 +12,19 @@ For **each** person, please provide:
 - [ ] Confirmed role/title
 - [ ] Short bio or responsibility description (one or two sentences)
 - [ ] Clear portrait/headshot, or confirmation to use the current placeholder
-- [ ] Confirmation that the person is happy for their name, bio, and photo to be published
 
 Please confirm the current role list and correct/add/remove roles as needed:
 
-| Homepage | Current role |
-|---|---|
-| Yes | President |
-| Yes | Co-President |
+| Homepage  | Current role               |
+| --------- | -------------------------- |
+| Yes       | President                  |
+| Yes       | Co-President               |
 | Team page | Director of Communications |
-| Team page | Director of Events |
-| Team page | Treasurer |
-| Team page | Events Coordinator |
-| Team page | Design Head |
-| Team page | Publicity Head |
+| Team page | Director of Events         |
+| Team page | Treasurer                  |
+| Team page | Events Coordinator         |
+| Team page | Design Head                |
+| Team page | Publicity Head             |
 
 **Important:** Names are currently placeholders. The two Delta 1.0 organiser profiles are already on the Delta page; confirm whether they are still accurate and should remain.
 
