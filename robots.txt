@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://krea-economics-club.vercel.app/sitemap.xml

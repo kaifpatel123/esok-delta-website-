@@ -21,3 +21,12 @@ py -m http.server 8000
 Open `http://localhost:8000/` for the club home page, `http://localhost:8000/team.html` for the full team, or `http://localhost:8000/delta.html` for Delta.
 
 The site is static and deployable to Vercel or GitHub Pages without a build step.
+
+## Search indexing
+
+The public pages include canonical URLs, social sharing metadata, and page
+descriptions. `robots.txt` allows crawlers and points to `sitemap.xml`, which
+lists the home, team, and Delta pages. The canonical host is currently
+`https://krea-economics-club.vercel.app/`; update it in the page metadata,
+structured data, `robots.txt`, and `sitemap.xml` if the site moves to a custom
+domain.
