@@ -404,6 +404,13 @@ h2.serif {
   overflow: hidden;
   transition: filter 0.5s;
 }
+.tm .ph img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
 .tm h4 {
   margin: 0;
   font-size: 1.25rem;
@@ -561,12 +568,6 @@ footer .big:hover {
   color: var(--gold);
   -webkit-text-stroke: 3px #7f1d1d;
   line-height: 0.8;
-}
-.dl .hero .delta-mark img {
-  display: block;
-  width: clamp(180px, 30vw, 360px);
-  max-height: 48vh;
-  object-fit: contain;
 }
 .dl .hero .img {
   background: none;
