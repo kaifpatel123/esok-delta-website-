@@ -562,6 +562,12 @@ footer .big:hover {
   -webkit-text-stroke: 3px #7f1d1d;
   line-height: 0.8;
 }
+.dl .hero .delta-mark img {
+  display: block;
+  width: clamp(180px, 30vw, 360px);
+  max-height: 48vh;
+  object-fit: contain;
+}
 .dl .hero .img {
   background: none;
   filter: none;
